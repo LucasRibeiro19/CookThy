@@ -1,13 +1,13 @@
 import HomeButton from './HomeButton';
-import HomeSearchbar from './HomeSearchbar';
+import HomeMain from './HomeMain';
 import '../homepage.css';
 
 function Homepage() {
     return ( 
         <div className="mainHome">
             {/* <img src="" alt="" /> */}
-            <h1>Titre</h1>
-            <HomeSearchbar/>
+            <h1>Title</h1>
+            <HomeMain/>
             <HomeButton/>
         </div>
      );

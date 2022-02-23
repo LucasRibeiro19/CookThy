@@ -1,9 +1,12 @@
 import '../searchpage.css';
+import FilterButton from './FilterButton';
+import FiltersList from './FiltersList';
 
-function Searchpage() {
+function Searchpage({handleDispFilters, isFiltersDisp}) {
     return ( 
         <>
-        <h1>Blablabla</h1>
+            <FilterButton handleDispFilters={handleDispFilters}/>
+            {isFiltersDisp ? <FiltersList/> : null}
         </>
      );
 }
