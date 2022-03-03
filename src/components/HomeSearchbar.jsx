@@ -1,7 +1,8 @@
-function HomeSearchbar() {
+
+function HomeSearchbar( {handleInterTerm} ) {
     return ( 
         <>
-        <input placeholder="Blablabla"/>
+        <input placeholder="Blablabla" onChange={handleInterTerm}/>
         </>
      );
 }

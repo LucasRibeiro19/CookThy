@@ -1,8 +1,8 @@
 import {Link} from 'react-router-dom';
-function HomeButton() {
+function HomeButton( {handleTerm, term} ) {
     return ( 
         <>
-        <Link to="/Search"><button>Search</button></Link>
+        <Link to="/Search"><button value={term} onClick={handleTerm}>Search</button></Link>
         </>
      );
 }

@@ -1,9 +1,13 @@
 import '../searchpage.css';
 
-function Searchpage() {
+function Searchpage( {term} ) {
+
+
+
+
     return ( 
         <>
-        <h1>Blablabla</h1>
+        <h1>{term}</h1>
         </>
      );
 }
