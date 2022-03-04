@@ -54,7 +54,6 @@ function SearchAppbar() {
     return ( 
             <Toolbar 
                 style={{display : 'flex', justifyContent :'space-between', alignItems:'center'}}>
-                {/* <h6>LOGO</h6> */}
                 <Typography
                     variant="h6"
                     fontFamily="Poppins"
@@ -62,9 +61,8 @@ function SearchAppbar() {
                     component="div"
                     sx={{  display: { xs: 'none', sm: 'block' } }}
                 >
-                    Title
+                    Logo
                 </Typography>
-                {/* <input type='text'placeholder="Search Recipe..."/> */}
                 <Search>
                     <SearchIconWrapper>
                         <SearchIcon />
