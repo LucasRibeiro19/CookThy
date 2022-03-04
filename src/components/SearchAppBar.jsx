@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Toolbar } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
@@ -9,6 +8,11 @@ import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
 import { styled, alpha } from '@mui/material/styles';
 import { Drawer } from '@mui/material';
+import { List } from '@mui/material';
+import { ListItem } from '@mui/material';
+import { ListItemText } from '@mui/material';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 const drawerWidth = 200;
 
@@ -18,6 +22,9 @@ const useStyles = makeStyles({
   },
   drawerPaper:{
     width: drawerWidth
+  },
+  active:{
+    backgroundColor:'#F4F4F4'
   }
 })
 
@@ -75,6 +82,20 @@ const Search = styled('div')(({ theme }) => ({
     const handleDrawer = () =>{
       setOpen(true)
     }
+
+    const menuItems = [
+      {
+        text:'Home',
+        path:'/'
+      },
+      {
+        text:'Search',
+        path:'/search'
+      }
+    ]
+
+    const navigate = useNavigate();
+    const location = useLocation();
     
     return ( 
           <>
@@ -117,7 +138,18 @@ const Search = styled('div')(({ theme }) => ({
               onClose={()=> setOpen(false)}
               
               >
-                Home
+                <List>
+                  {menuItems.map(item => (
+                            <ListItem 
+                              button
+                              key={item.text} 
+                              onClick={() => navigate(item.path)} 
+                              className={location.pathname === item.path ? classes.active : null}
+                            >
+                            <ListItemText primary={item.text}></ListItemText>
+                          </ListItem>
+                  ))}
+                </List>
             </Drawer>
           </>
      );
