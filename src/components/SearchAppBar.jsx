@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Toolbar } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
+import HomeIcon from '@mui/icons-material/Home';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
@@ -10,6 +12,7 @@ import { styled, alpha } from '@mui/material/styles';
 import { Drawer } from '@mui/material';
 import { List } from '@mui/material';
 import { ListItem } from '@mui/material';
+import { ListItemIcon } from '@mui/material';
 import { ListItemText } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -86,10 +89,12 @@ const Search = styled('div')(({ theme }) => ({
     const menuItems = [
       {
         text:'Home',
+        icon : <HomeIcon/>,
         path:'/'
       },
       {
-        text:'Search',
+        text:'Recipes',
+        icon: <LocalDiningIcon/>,
         path:'/search'
       }
     ]
@@ -141,11 +146,12 @@ const Search = styled('div')(({ theme }) => ({
                 <List>
                   {menuItems.map(item => (
                             <ListItem 
-                              button
+                              // button
                               key={item.text} 
                               onClick={() => navigate(item.path)} 
                               className={location.pathname === item.path ? classes.active : null}
                             >
+                            <ListItemIcon>{item.icon}</ListItemIcon>
                             <ListItemText primary={item.text}></ListItemText>
                           </ListItem>
                   ))}
