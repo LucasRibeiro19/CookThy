@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { Link } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { Toolbar } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -5,8 +8,20 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
 import { styled, alpha } from '@mui/material/styles';
+import { Drawer } from '@mui/material';
 
+const drawerWidth = 200;
 
+const useStyles = makeStyles({
+  drawer:{
+    width: drawerWidth
+  },
+  drawerPaper:{
+    width: drawerWidth
+  }
+})
+
+///////////////////////// APPBAR \\\\\\\\\\\\\\\\\\\\\\\\\\\\
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     border:'2px solid #01937C',
@@ -50,8 +65,19 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-function SearchAppbar() {
+  
+  function SearchAppbar() {
+
+    const classes = useStyles();
+
+    const [open, setOpen] = useState(false);
+  
+    const handleDrawer = () =>{
+      setOpen(true)
+    }
+    
     return ( 
+          <>
             <Toolbar 
                 style={{display : 'flex', justifyContent :'space-between', alignItems:'center'}}>
                 <Typography
@@ -76,10 +102,24 @@ function SearchAppbar() {
                     size="large"
                     edge="start"
                     color="inherit"
-                    aria-label="menu">
+                    aria-label="menu"
+                    onClick={handleDrawer}
+                    >
+                    
                     <MenuIcon/>
                 </IconButton>
             </Toolbar>
+            <Drawer 
+              className={classes.drawer}
+              classes={{paper : classes.drawerPaper}}
+              anchor='right'
+              open={open}
+              onClose={()=> setOpen(false)}
+              
+              >
+                Home
+            </Drawer>
+          </>
      );
 }
 
