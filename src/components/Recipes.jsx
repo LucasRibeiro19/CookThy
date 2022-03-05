@@ -3,7 +3,7 @@ import Recipe from "./Recipe";
 
 export default function Recipes( {recipes} ) {
     return (
-        <div>
+        <div class="recipes">
             {recipes.hits && recipes.hits.map(recipe=>
                 <Recipe recipe={recipe}></Recipe>)}
         
