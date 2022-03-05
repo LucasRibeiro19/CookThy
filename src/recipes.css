@@ -1,4 +1,6 @@
-.recipes {
-    display : flex;
-    /* justify-content :  */
+.recipeslist{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1em;
 }
