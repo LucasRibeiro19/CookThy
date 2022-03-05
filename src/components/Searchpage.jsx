@@ -1,19 +1,22 @@
 import '../searchpage.css';
 import Recipes from "./Recipes";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import axios from 'axios';
 // import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
 import { SearchContext } from '../contexts/SearchContext';
+import { RecipeContext } from '../contexts/RecipeContext';
 import labels from '../labels.json';
 
-function Searchpage( {term, recipes} ) {
+function Searchpage( ) {
 
 
     const { health, diet } = labels;
 
-    const [healthFilter, SetHealthFilter]=useState('')
-    const [dietFilter, SetDietFilter]=useState('')
+    // const [healthFilter, SetHealthFilter]=useState('')
+    // const [dietFilter, SetDietFilter]=useState('')
 
     const {term} = useContext(SearchContext);
+    const {setRecipes} = useContext(RecipeContext);
     
     useEffect(()=>{
         const getApi = async () => {
@@ -23,13 +26,13 @@ function Searchpage( {term, recipes} ) {
         getApi();
     }, [term])
     
-    console.log(recipes);
 
-    
+
+
     return ( 
         <>
         <h1>{term}</h1>
-        <Recipes recipes={recipes}></Recipes>
+        <Recipes/>
         </>
      );
 }

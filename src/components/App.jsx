@@ -15,19 +15,17 @@ function App() {
 
 
 
-
-
-  
+ 
   return (
     <div className="App">
-      <Routes>
-        <RecipeContextProvider>
-          <SearchContextProvider>
+      <RecipeContextProvider>
+        <SearchContextProvider>
+          <Routes>
             <Route path="/" element={<Homepage />}></Route>
             <Route path="/Search" element={<Searchpage />}></Route>
-          </SearchContextProvider>
-        </RecipeContextProvider>
-      </Routes>
+          </Routes>
+        </SearchContextProvider>
+      </RecipeContextProvider>
     </div>
   );
 }

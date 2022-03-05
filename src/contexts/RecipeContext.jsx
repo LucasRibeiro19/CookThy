@@ -7,11 +7,14 @@ export const RecipeContextProvider = ({children}) => {
 
     const [recipes, setRecipes] = useState([])
 
+    // console.log(recipes);
+
 
     return (
         <RecipeContext.Provider 
             value={{
-
+                recipes,
+                setRecipes
             }}
         >
             {children}

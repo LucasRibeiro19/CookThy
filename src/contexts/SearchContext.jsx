@@ -11,13 +11,11 @@ const [term, setTerm] = useState('');
 const [interTerm, setInterTerm] = useState('');
 
 const handleInterTerm = (event) => {
-    console.log(event.target.value)
     setInterTerm(event.target.value)
 }
 
 const handleTerm = (event) => {
-    console.log(event.target.value)
-    setTerm(event.target.value)
+    setTerm(interTerm)
 }
 
 return(
