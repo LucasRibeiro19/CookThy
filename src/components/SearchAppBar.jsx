@@ -1,37 +1,14 @@
-import { useState } from 'react';
-import { makeStyles } from '@mui/styles';
+import { useContext } from 'react';
+import DrawerContext from '../contexts/DrawerContext';
+import DrawerMenu from './DrawerMenu';
 import { Toolbar } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import HomeIcon from '@mui/icons-material/Home';
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
 import { styled, alpha } from '@mui/material/styles';
-import { Drawer } from '@mui/material';
-import { List } from '@mui/material';
-import { ListItem } from '@mui/material';
-import { ListItemIcon } from '@mui/material';
-import { ListItemText } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
 
-
-const drawerWidth = 200;
-
-const useStyles = makeStyles({
-  drawer:{
-    width: drawerWidth
-  },
-  drawerPaper:{
-    width: drawerWidth
-  },
-  active:{
-    backgroundColor:'#F4F4F4'
-  }
-})
-
-///////////////////////// APPBAR \\\\\\\\\\\\\\\\\\\\\\\\\\\\
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     border:'2px solid #01937C',
@@ -76,32 +53,9 @@ const Search = styled('div')(({ theme }) => ({
   }));
 
   
-  function SearchAppbar() {
-
-    const classes = useStyles();
-
-    const [open, setOpen] = useState(false);
   
-    const handleDrawer = () =>{
-      setOpen(true)
-    }
-
-    const menuItems = [
-      {
-        text:'Home',
-        icon : <HomeIcon/>,
-        path:'/'
-      },
-      {
-        text:'Recipes',
-        icon: <LocalDiningIcon/>,
-        path:'/search'
-      }
-    ]
-
-    const navigate = useNavigate();
-    const location = useLocation();
-    
+  function SearchAppbar() {
+    const {handleDrawer} = useContext(DrawerContext)
     return ( 
           <>
             <Toolbar 
@@ -135,28 +89,7 @@ const Search = styled('div')(({ theme }) => ({
                     <MenuIcon/>
                 </IconButton>
             </Toolbar>
-            <Drawer 
-              className={classes.drawer}
-              classes={{paper : classes.drawerPaper}}
-              anchor='right'
-              open={open}
-              onClose={()=> setOpen(false)}
-              
-              >
-                <List>
-                  {menuItems.map(item => (
-                            <ListItem 
-                              // button
-                              key={item.text} 
-                              onClick={() => navigate(item.path)} 
-                              className={location.pathname === item.path ? classes.active : null}
-                            >
-                            <ListItemIcon>{item.icon}</ListItemIcon>
-                            <ListItemText primary={item.text}></ListItemText>
-                          </ListItem>
-                  ))}
-                </List>
-            </Drawer>
+            <DrawerMenu/>
           </>
      );
 }

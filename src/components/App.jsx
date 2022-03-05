@@ -1,6 +1,6 @@
 import '../App.css';
-import {Routes, Route, Link} from 'react-router-dom';
-import {useEffet, useState} from 'react';
+import {Routes, Route} from 'react-router-dom';
+import {useEffect, useState} from 'react';
 import Homepage from './Homepage';
 import Footer from './Footer';
 import Header from './Header';
@@ -16,10 +16,6 @@ function App() {
       setDisplayFilters(false)
     }
   }
-
-
-  console.log(displayFilters);
-
 
 
   return (
