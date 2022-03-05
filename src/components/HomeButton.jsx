@@ -1,5 +1,12 @@
 import {Link} from 'react-router-dom';
-function HomeButton( {handleTerm, term} ) {
+import {useContext} from 'react'
+import { SearchContext } from '../contexts/SearchContext';
+
+
+function HomeButton() {
+
+    const {term, handleTerm} = useContext(SearchContext);
+
     return ( 
         <>
         <Link to="/Search"><button value={term} onClick={handleTerm}>Search</button></Link>

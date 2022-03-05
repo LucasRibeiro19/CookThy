@@ -1,23 +1,18 @@
 import '../App.css';
-import {Routes, Route, Link} from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import {Routes, Route} from 'react-router-dom';
+import {useEffect, useContext} from 'react';
 import axios from 'axios';
 import Homepage from './Homepage';
 import Searchpage from './Searchpage';
+import { SearchContext, SearchContextProvider } from '../contexts/SearchContext';
+
+
+
+
+
 function App() {
 
-  const [term, setTerm] = useState('');
-  const [interTerm, setInterTerm] = useState('');
-
-  const handleInterTerm = (event) => {
-    console.log(event.target.value)
-    setInterTerm(event.target.value)
-  }
-
-  const handleTerm = (event) => {
-    console.log(event.target.value)
-    setTerm(event.target.value)
-  }
+  const {term} = useContext(SearchContext);
 
  useEffect(()=>{
 
@@ -37,8 +32,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Homepage handleTerm={handleTerm} interTerm={interTerm} handleInterTerm={handleInterTerm}/>}></Route>
-        <Route path="/Search" element={<Searchpage term={term}/>}></Route>
+        <SearchContextProvider>
+          <Route path="/" element={<Homepage />}></Route>
+          <Route path="/Search" element={<Searchpage />}></Route>
+        </SearchContextProvider>
       </Routes>
     </div>
   );

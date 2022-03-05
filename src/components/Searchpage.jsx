@@ -1,8 +1,12 @@
 import '../searchpage.css';
+import {useContext} from 'react'
+import { SearchContext } from '../contexts/SearchContext';
 
-function Searchpage( {term} ) {
 
 
+function Searchpage() {
+
+const {term} = useContext(SearchContext)
 
 
     return ( 
