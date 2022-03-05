@@ -1,13 +1,16 @@
 import React from 'react'
+import RecipeCard from './RecipeCard'
 
 export default function Recipe( {recipe} ) {
 
 
     return (
-        <div>
-            <figure>
+        <>
+            {/* <figure>
                 <img src={recipe.recipe.image}></img>
-            </figure>
-        </div>
+            </figure> */}
+
+            <RecipeCard recipe={recipe}/>
+        </>
     )
 }
