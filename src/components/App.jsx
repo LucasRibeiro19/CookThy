@@ -4,10 +4,12 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Homepage from './Homepage';
 import Searchpage from './Searchpage';
+import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
 function App() {
 
   const [term, setTerm] = useState('');
   const [interTerm, setInterTerm] = useState('');
+  const [recipes, setRecipes] = useState({})
 
   const handleInterTerm = (event) => {
     console.log(event.target.value)
@@ -20,16 +22,11 @@ function App() {
   }
 
  useEffect(()=>{
-
     const getApi = async () => {
-      let res = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
-      const { data } = res;
-      return data;
+      await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
+                  .then(res=>setRecipes(res.data))
     }
-
-    const res = getApi();
-    console.log(res)
-
+     getApi();
   }, [term])
 
 
@@ -38,7 +35,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Homepage handleTerm={handleTerm} interTerm={interTerm} handleInterTerm={handleInterTerm}/>}></Route>
-        <Route path="/Search" element={<Searchpage term={term}/>}></Route>
+        <Route path="/Search" element={<Searchpage term={term} recipes={recipes}/>}></Route>
       </Routes>
     </div>
   );
