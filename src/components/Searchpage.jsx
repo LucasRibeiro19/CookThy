@@ -1,17 +1,22 @@
 import '../searchpage.css';
-import {useContext} from 'react'
-import { SearchContext } from '../contexts/SearchContext';
+import Recipes from "./Recipes";
+import { useState } from "react";
+import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
+import labels from '../labels.json';
 
+function Searchpage( {term, recipes} ) {
 
+    const { health, diet } = labels;
 
-function Searchpage() {
+    const [healthFilter, SetHealthFilter]=useState('')
+    const [dietFilter, SetDietFilter]=useState('')
 
-const {term} = useContext(SearchContext)
-
+    console.log(recipes);
 
     return ( 
         <>
         <h1>{term}</h1>
+        <Recipes recipes={recipes}></Recipes>
         </>
      );
 }
