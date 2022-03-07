@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SearchContext } from "../contexts/SearchContext";
 import DrawerContext from '../contexts/DrawerContext';
 import DrawerMenu from './DrawerMenu';
 import { Toolbar } from '@mui/material';
@@ -54,8 +56,22 @@ const Search = styled('div')(({ theme }) => ({
 
   
   
+  
+  
   function SearchAppbar() {
-    const {handleDrawer} = useContext(DrawerContext)
+    const {handleInterTerm, handleTerm} = useContext(SearchContext);
+    const {handleDrawer} = useContext(DrawerContext);
+
+    const navigate = useNavigate();
+
+    const pressEnter = (e) => {
+      if(e.keyCode === 13){
+          e.preventDefault();
+          handleTerm();
+          navigate('/search')
+      }
+  }
+
     return ( 
           <>
             <Toolbar 
@@ -76,6 +92,8 @@ const Search = styled('div')(({ theme }) => ({
                         <StyledInputBase
                             placeholder="Search something"
                             inputProps={{ 'aria-label': 'search' }}
+                            onChange={handleInterTerm}
+                            onKeyUp={pressEnter}
                         />
                 </Search>
                 <IconButton
