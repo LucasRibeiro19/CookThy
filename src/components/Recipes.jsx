@@ -7,6 +7,7 @@ export default function Recipes() {
 
     const {recipes} = useContext(RecipeContext);
     console.log(recipes);
+    
     return (
         <div className='recipeslist'>
             {recipes.hits && recipes.hits.map((recipe, index)=>

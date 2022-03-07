@@ -5,6 +5,7 @@ import '../homepage.css';
 
 
 function Homepage() {
+    console.log(2)
     return ( 
         <div className="mainHome">
             {/* <img src="" alt="" /> */}
