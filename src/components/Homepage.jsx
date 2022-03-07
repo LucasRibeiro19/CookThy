@@ -1,4 +1,5 @@
 import HomeButton from './HomeButton';
+import HomeMain from './HomeMain';
 import HomeSearchbar from './HomeSearchbar';
 import '../homepage.css';
 

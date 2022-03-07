@@ -1,6 +1,6 @@
 import '../searchpage.css';
 import Recipes from "./Recipes";
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import axios from 'axios';
 // import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
 import { SearchContext } from '../contexts/SearchContext';
@@ -10,7 +10,7 @@ import labels from '../labels.json';
 function Searchpage( ) {
 
 
-    const { health, diet } = labels;
+    // const { health, diet } = labels;
 
     // const [healthFilter, SetHealthFilter]=useState('')
     // const [dietFilter, SetDietFilter]=useState('')
