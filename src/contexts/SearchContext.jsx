@@ -18,6 +18,9 @@ const handleTerm = (event) => {
     setTerm(interTerm)
 }
 
+console.log(term);
+console.log(interTerm);
+
 return(
     <SearchContext.Provider value= {{term, handleTerm, interTerm, handleInterTerm}}>
         {children}
