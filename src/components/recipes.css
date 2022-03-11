@@ -1,4 +1,6 @@
 .recipes {
     display : flex;
-    justify-content : 
+    justify-content : space-evenly;
+    flex-direction : column;
+    flex-wrap : wrap;
 }

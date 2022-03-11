@@ -5,22 +5,12 @@ import axios from 'axios';
 import Homepage from './Homepage';
 import Searchpage from './Searchpage';
 import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
-import labels from '../labels.json';
-
-
 
 function App() {
-
-
-  const { health, diet } = labels;
-  console.log(health)
-  console.log(diet)
 
   const [term, setTerm] = useState('');
   const [interTerm, setInterTerm] = useState('');
   const [recipes, setRecipes] = useState({})
-  const [healthFilter, SetHealthFilter]=useState('')
-  const [dietFilter, SetDietFilter]=useState('')
 
   const handleInterTerm = (event) => {
     console.log(event.target.value)
@@ -39,6 +29,8 @@ function App() {
     }
      getApi();
   }, [term])
+
+  
 
 
 
