@@ -6,6 +6,7 @@ import Header from './Header';
 import Searchpage from './Searchpage';
 import { SearchContextProvider } from '../contexts/SearchContext';
 import { RecipeContextProvider } from '../contexts/RecipeContext';
+import {ModalContextProvider} from '../contexts/ModalContext';
 
 
 
@@ -17,16 +18,18 @@ function App() {
 
   return (
     <div className="App">
-      <RecipeContextProvider>
-        <SearchContextProvider>
-            <Header/>
-              <Routes>
-                <Route path="/" element={<Homepage />}></Route>
-                <Route path="/Search" element={<Searchpage />}></Route>
-              </Routes>
-            <Footer/>
-        </SearchContextProvider>
-      </RecipeContextProvider>
+        <ModalContextProvider>
+          <RecipeContextProvider>
+            <SearchContextProvider>
+                <Header/>
+                  <Routes>
+                    <Route path="/" element={<Homepage />}></Route>
+                    <Route path="/Search" element={<Searchpage />}></Route>
+                  </Routes>
+                <Footer/>
+            </SearchContextProvider>
+          </RecipeContextProvider>
+        </ModalContextProvider>
     </div>
   );
 }
