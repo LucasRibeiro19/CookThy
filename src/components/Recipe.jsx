@@ -1,17 +1,21 @@
-import React from 'react';
-import { useContext } from 'react';
+import React from 'react'
+import { useNavigate, Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import ModalContext from '../contexts/ModalContext';
-import RecipeModal from './RecipeModal';
 
 export default function Recipe( {recipe} ) {
 
+    const navigate = useNavigate();
+
     const {label} = recipe.recipe;
-    const {image} = recipe.recipe;
+
+    const handleDetails = () => {
+        navigate(`/Recipe/${label}`)
+    }
 
     return (
         <>
@@ -20,8 +24,8 @@ export default function Recipe( {recipe} ) {
                 sx={{borderRadius: '4px'}}
                 component="img"
                 height="50%"
-                image={image}
-                alt={label}
+                image={recipe.recipe.image}
+                alt="green iguana"
             />
             <CardContent>
                 <Typography
@@ -48,7 +52,13 @@ export default function Recipe( {recipe} ) {
             >
                 <Button size="small">Show details</Button>
             </CardActions> */}
-            <RecipeModal recipe={recipe}/>
+            <Button
+                onClick={handleDetails}
+                variant='contained'
+                color='success'
+             >Show details
+             </Button>
+      
             </Card>
         </>
     )

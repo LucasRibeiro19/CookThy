@@ -5,7 +5,6 @@ import axios from 'axios';
 // import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
 import { SearchContext } from '../contexts/SearchContext';
 import { RecipeContext } from '../contexts/RecipeContext';
-import labels from '../labels.json';
 
 function Searchpage( ) {
 

@@ -82,7 +82,7 @@ const Search = styled('div')(({ theme }) => ({
                     noWrap
                     component="div"
                     sx={{  display: { xs: 'none', sm: 'block' } }}
-                    onClick={()=> navigate('/home')}
+                    onClick={()=> navigate('/')}
                 >
                     Logo
                 </Typography>
