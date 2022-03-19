@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -21,6 +22,10 @@ export default function RecipeModal({recipe}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleClick = () => {
+    window.open(recipe.recipe.url)
+  }
 
   const {label} = recipe.recipe;
   const {ingredientLines} = recipe.recipe
@@ -46,6 +51,15 @@ export default function RecipeModal({recipe}) {
             <ul>
               {ingredientLines.map(ingredient => <li>{ingredient}</li>)}
             </ul>
+            <Button
+              variant='contained'
+              color='success'
+              onClick={handleClick}
+
+            >
+              Instructions
+
+            </Button>
           </div>
         </Box>
       </Modal>
