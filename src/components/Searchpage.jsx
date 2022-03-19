@@ -6,6 +6,8 @@ import axios from 'axios';
 import { SearchContext } from '../contexts/SearchContext';
 import { RecipeContext } from '../contexts/RecipeContext';
 import labels from '../labels.json';
+import Filters from './Filters.jsx';
+
 
 function Searchpage( ) {
 
@@ -32,6 +34,7 @@ function Searchpage( ) {
     return ( 
         <>
         <h1>{term}</h1>
+        <Filters />
         <Recipes/>
         </>
      );

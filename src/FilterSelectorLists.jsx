@@ -1,0 +1,83 @@
+export const mealType = [
+    'Breakfast',
+    'Lunch',
+    'Dinner',
+    'Snack',
+    'Tea Time'
+];
+export const allergies = [
+    'Celery-free',
+    'Crustacean-free',
+    'Dairy-free',
+    'Egg-free',
+    'Fish-free',
+    'Gluten-free',
+    'Lupine-free',
+    'Mustard-free',
+    'Peanut-free',
+    'Sesame-free',
+    'Shellfish-free',
+    'Soy-free',
+    'Tree-nut-free',
+    'Wheat-free'
+  ];
+export const dishType = [
+    'Biscuits and cookies',
+    'Breab',
+    'Cereals',
+    'Condiments and Sauces',
+    'Desserts',
+    'Drinks',
+    'Main Course',
+    'Pancake',
+    'Preps',
+    'Preserve',
+    'Salad',
+    'Sandwiches',
+    'Side dishes',
+    'Soup',
+    'Starter',
+    'Sweets'
+];
+export const diet = [
+    'Alcohol-free',
+    'Balanced',
+    'High-Fiber',
+    'High-Protein',
+    'Keto',
+    'Kidney friendly',
+    'Kocher',
+    'Low-Carb',
+    'Low-Fat',
+    'Low potassium',
+    'Low-Sodium',
+    'No oil added',
+    'No-sugar',
+    'Paleo',
+    'Pescatarian',
+    'Pork-free',
+    'Red meat-free',
+    'Sugar-conscious',
+    'Vegan',
+    'Vegetarian'
+];
+export const cuisineType = [
+    'American',
+    'Asian',
+    'British',
+    'Caribbean',
+    'Central Europe',
+    'Chinese',
+    'Eastern Europe',
+    'French',
+    'Indian',
+    'Italian',
+    'Japanese',
+    'Kocher',
+    'Mediterranean',
+    'Mexican',
+    'Middle Eastern',
+    'Nordic',
+    'South American',
+    'South East Asia'
+];

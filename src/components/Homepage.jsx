@@ -1,6 +1,8 @@
 import HomeButton from './HomeButton';
 import HomeMain from './HomeMain';
-import '../homepage.css';
+import '../homepage.css'
+import Filters from './Filters.jsx'
+
 
 
 function Homepage() {
@@ -10,6 +12,7 @@ function Homepage() {
             {/* <img src="" alt="" /> */}
             <h1>Titre</h1>
             <HomeButton />
+            <Filters />
         </div>
      );
 }
