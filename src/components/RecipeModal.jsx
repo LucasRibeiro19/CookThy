@@ -55,10 +55,8 @@ export default function RecipeModal({recipe}) {
               variant='contained'
               color='success'
               onClick={handleClick}
-
             >
               Instructions
-
             </Button>
           </div>
         </Box>
