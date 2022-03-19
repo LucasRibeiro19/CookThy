@@ -1,6 +1,5 @@
 import HomeButton from './HomeButton';
 import HomeMain from './HomeMain';
-import RecipeModal from './RecipeModal';
 import '../homepage.css';
 
 
