@@ -5,7 +5,6 @@ import axios from 'axios';
 // import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
 import { SearchContext } from '../contexts/SearchContext';
 import { RecipeContext } from '../contexts/RecipeContext';
-import labels from '../labels.json';
 
 function Searchpage( ) {
 
@@ -37,7 +36,7 @@ function Searchpage( ) {
 
     return ( 
         <>
-        <h1>{recipes.hits.length === 0 ? `No results for " ${term} "` : `${recipes.count} results for " ${term} " :`}</h1>
+        {/* <h1>{recipes.hits.length === 0 ? `No results for " ${term} "` : `${recipes.count} results for " ${term} " :`}</h1> */}
         <Recipes/>
         </>
      );

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate, Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,6 +9,13 @@ import Typography from '@mui/material/Typography';
 
 export default function Recipe( {recipe} ) {
 
+    const navigate = useNavigate();
+
+    const {label} = recipe.recipe;
+
+    const handleDetails = () => {
+        navigate(`/Recipe/${label}`)
+    }
 
     return (
         <>
@@ -26,7 +34,7 @@ export default function Recipe( {recipe} ) {
                     variant="h5" 
                     component="div"
                     >
-                    {recipe.recipe.label}
+                    {label}
                 </Typography>
                 <CardContent
                     sx={{display:'flex', justifyContent:'space-between'}}
@@ -45,11 +53,12 @@ export default function Recipe( {recipe} ) {
                 <Button size="small">Show details</Button>
             </CardActions> */}
             <Button
-                
+                onClick={handleDetails}
                 variant='contained'
                 color='success'
-            >Show details
-            </Button>
+             >Show details
+             </Button>
+      
             </Card>
         </>
     )
