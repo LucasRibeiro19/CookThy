@@ -6,6 +6,7 @@ import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
 import Filters from './Filters';
 import labels from '../labels.json';
 import './filter.css'
+import './recipes.css'
 
 function Searchpage( {term, recipes} ) {
 
@@ -81,7 +82,10 @@ function Searchpage( {term, recipes} ) {
         </div>
         <div>
         <h1>{term}</h1>
+        <div className='recipes'>
         <Recipes recipes={selectRecipes}></Recipes>
+        </div>
+        
         </div>
         </>
      );
