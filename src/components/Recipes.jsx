@@ -3,7 +3,7 @@ import Recipe from "./Recipe";
 import './recipes.css'
 
 
-export default function Recipes( {recipes, filters} ) {
+export default function Recipes( {recipes} ) {
 
     //let flt =  recipes.hits
     //                .filter(recipe=>filters.every(filter=>recipe.recipe.healthLabels.includes(filter)))
