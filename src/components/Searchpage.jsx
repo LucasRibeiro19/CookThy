@@ -7,8 +7,9 @@ import Filters from './Filters';
 import labels from '../labels.json';
 import './filter.css'
 import './recipes.css'
+import ButtonNext from './ButtonNext'
 
-function Searchpage( {term, recipes} ) {
+function Searchpage( {term, recipes, nextPage} ) {
 
     const removeFilter = (labels, label) => {
         return labels.filter((elm) => elm !==label)
@@ -43,13 +44,15 @@ function Searchpage( {term, recipes} ) {
     const [healthFilter, setHealthFilter]=useState([])
     const [dietFilter, setDietFilter]=useState([])
     const [recipesF, setRecipesF] = useState([])
+    const [nextPageF, setNextPageF] = useState(nextPage)
+
 
     useEffect(()=>{
         const getApiFilter = async (filterH, filterD) => {
             const app_id = "82995fc0";
             const app_key = "ee3fd4c5fe78ab26de55a1aaa3f0c94c";
             let url = `https://api.edamam.com/api/recipes/v2?type=public&q=${term}`
-            console.log(filterH.length)
+            //console.log(filterH.length)
             //console.log(filterH !== [] & filterD !== [])
             if (filterH.length !== 0 & filterD.length !== 0){
                 url += `&health=${filterH.join('&health=').toLowerCase()}`+`&diet=${filterD.join('&diet=').toLowerCase()}`+`&app_id=${app_id}&app_key=${app_key}`
@@ -72,7 +75,18 @@ function Searchpage( {term, recipes} ) {
          getApiFilter(healthFilter, dietFilter);
       }, [healthFilter, dietFilter])
 
+
+
       const selectRecipes = recipesF.length === 0 ? recipes : recipesF
+
+      useEffect(()=>{
+        const getPageF = async ()=>{
+            await axios.get(selectRecipes._links.next.href)
+                .then (res=>setNextPageF(res.data))  
+        }
+        getPageF();
+
+    }, [selectRecipes])
 
     return ( 
         <>
@@ -85,7 +99,7 @@ function Searchpage( {term, recipes} ) {
         <div className='recipes'>
         <Recipes recipes={selectRecipes}></Recipes>
         </div>
-        
+        <ButtonNext recipes={nextPageF}></ButtonNext>
         </div>
         </>
      );

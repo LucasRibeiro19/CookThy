@@ -11,6 +11,7 @@ function App() {
   const [term, setTerm] = useState('');
   const [interTerm, setInterTerm] = useState('');
   const [recipes, setRecipes] = useState({})
+  const [nextPage, setNextPage] = useState({})
 
   const handleInterTerm = (event) => {
     console.log(event.target.value)
@@ -30,6 +31,14 @@ function App() {
      getApi();
   }, [term])
 
+  useEffect(()=>{
+    const getNextPage = async()=>{
+      await axios.get(recipes._links.next.href)
+        .then(res=>setNextPage(res.data))
+    }
+    getNextPage();
+  }, [recipes])
+
   
 
 
@@ -38,7 +47,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Homepage handleTerm={handleTerm} interTerm={interTerm} handleInterTerm={handleInterTerm}/>}></Route>
-        <Route path="/Search" element={<Searchpage term={term} recipes={recipes}/>}></Route>
+        <Route path="/Search" element={<Searchpage term={term} recipes={recipes} nextPage = {nextPage}/>}></Route>
       </Routes>
     </div>
   );
