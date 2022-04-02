@@ -43,8 +43,9 @@ function Searchpage( {term, recipes, nextPage} ) {
 
     const [healthFilter, setHealthFilter]=useState([])
     const [dietFilter, setDietFilter]=useState([])
-    const [recipesF, setRecipesF] = useState([])
+    const [recipesF, setRecipesF] = useState(recipes)
     const [nextPageF, setNextPageF] = useState(nextPage)
+    const [display, setDisplay] = useState([recipesF])
 
 
     useEffect(()=>{
@@ -52,8 +53,6 @@ function Searchpage( {term, recipes, nextPage} ) {
             const app_id = "82995fc0";
             const app_key = "ee3fd4c5fe78ab26de55a1aaa3f0c94c";
             let url = `https://api.edamam.com/api/recipes/v2?type=public&q=${term}`
-            //console.log(filterH.length)
-            //console.log(filterH !== [] & filterD !== [])
             if (filterH.length !== 0 & filterD.length !== 0){
                 url += `&health=${filterH.join('&health=').toLowerCase()}`+`&diet=${filterD.join('&diet=').toLowerCase()}`+`&app_id=${app_id}&app_key=${app_key}`
             }
@@ -63,12 +62,10 @@ function Searchpage( {term, recipes, nextPage} ) {
             else if (filterH.length !== 0 & filterD.length === 0){
                 url += `&health=${filterH.join('&health=').toLowerCase()}`+`&app_id=${app_id}&app_key=${app_key}`
             }
-            //let url = filterH.concat()`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`
             else {
                 url +=`&app_id=${app_id}&app_key=${app_key}`
             }
             console.log(url)
-            //console.log(filterD)
             await axios.get(url)
                 .then(res=>setRecipesF(res.data))
         }
@@ -76,17 +73,29 @@ function Searchpage( {term, recipes, nextPage} ) {
       }, [healthFilter, dietFilter])
 
 
-
-      const selectRecipes = recipesF.length === 0 ? recipes : recipesF
+      const handleNextPage = (event) =>{
+        console.log(recipesF.from)
+        setRecipesF(nextPageF)
+        setDisplay([...display, recipesF])
+        console.log(recipesF)
+      }
 
       useEffect(()=>{
         const getPageF = async ()=>{
-            await axios.get(selectRecipes._links.next.href)
+            await axios.get(recipesF._links.next.href)
                 .then (res=>setNextPageF(res.data))  
         }
         getPageF();
 
-    }, [selectRecipes])
+    }, [recipesF])
+
+    useEffect(()=>{
+        if (recipesF.from === 1){
+            setDisplay([recipesF])
+        }
+    }, [recipesF])
+
+
 
     return ( 
         <>
@@ -97,9 +106,9 @@ function Searchpage( {term, recipes, nextPage} ) {
         <div>
         <h1>{term}</h1>
         <div className='recipes'>
-        <Recipes recipes={selectRecipes}></Recipes>
+        <Recipes recipes={recipesF}></Recipes>
         </div>
-        <ButtonNext recipes={nextPageF}></ButtonNext>
+        <ButtonNext recipes={nextPageF} handleNextPage={handleNextPage}></ButtonNext>
         </div>
         </>
      );

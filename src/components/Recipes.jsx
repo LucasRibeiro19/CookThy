@@ -5,19 +5,18 @@ import './recipes.css'
 
 export default function Recipes( {recipes} ) {
 
-    //let flt =  recipes.hits
-    //                .filter(recipe=>filters.every(filter=>recipe.recipe.healthLabels.includes(filter)))
-    //console.log(flt)
+    //const rcp = display && display.map(recipes => recipes.hits && recipes.hits);
+    //console.log(rcp)
 
     return (
         <>
         <div >
             <div className='recipes'>
-            {recipes.hits && recipes.hits
-                //.filter(recipe=>filters.every(filter=>recipe.recipe.healthLabels.includes(filter)))
+            { recipes.hits && recipes.hits
                 .map(recipe=><Recipe recipe={recipe}></Recipe>)}    
             </div>   
         </div>
         </>
     )
 }
+
