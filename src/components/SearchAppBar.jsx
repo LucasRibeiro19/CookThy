@@ -65,7 +65,7 @@ const Search = styled('div')(({ theme }) => ({
     const navigate = useNavigate();
 
     const pressEnter = (e) => {
-      if(e.keyCode === 13){
+      if(e.key === "Enter"){
           e.preventDefault();
           handleTerm();
           navigate('/search')
