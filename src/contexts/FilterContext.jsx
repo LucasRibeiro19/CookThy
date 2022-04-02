@@ -7,12 +7,6 @@ export const FilterContext = createContext();
 
 export const FilterContextProvider = ({ children }) => {
 
-<<<<<<< HEAD
-
-
-    return (
-        <FilterContext.Provider>
-=======
 const [MealType , setMealType] = useState([])
 const handleChangeMealType = (event) => {
     const {
@@ -84,7 +78,6 @@ const handleChangeDiet = (event) => {
             Diet,
             handleChangeDiet
         }}>
->>>>>>> main
             { children }
         </FilterContext.Provider>
     )
