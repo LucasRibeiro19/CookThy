@@ -8,6 +8,7 @@ import RecipeDetails from './RecipeDetails';
 import { SearchContextProvider } from '../contexts/SearchContext';
 import { RecipeContextProvider } from '../contexts/RecipeContext';
 import {ModalContextProvider} from '../contexts/ModalContext';
+import { FilterContextProvider} from '../contexts/FilterContext';
 
 
 
@@ -22,13 +23,15 @@ function App() {
         <ModalContextProvider>
           <RecipeContextProvider>
             <SearchContextProvider>
-                <Header/>
-                  <Routes>
-                    <Route path="/" element={<Homepage />}></Route>
-                    <Route path="/Search" element={<Searchpage />}></Route>
-                    <Route path='/Recipe/:recipeID' element={<RecipeDetails/>}></Route>
-                  </Routes>
-                <Footer/>
+                <FilterContextProvider>
+                  <Header/>
+                    <Routes>
+                      <Route path="/" element={<Homepage />}></Route>
+                      <Route path="/Search" element={<Searchpage />}></Route>
+                      <Route path='/Recipe/:recipeID' element={<RecipeDetails/>}></Route>
+                    </Routes>
+                  <Footer/>
+                </FilterContextProvider>  
             </SearchContextProvider>
           </RecipeContextProvider>
         </ModalContextProvider>
