@@ -9,8 +9,8 @@ export default function Recipes() {
     // console.log(recipes);
     return (
         <div className='recipeslist'>
-            {recipes.hits && recipes.hits.map(recipe=>
-                <Recipe recipe={recipe}></Recipe>)}
+            {recipes.hits && recipes.hits.map((recipe, index)=>
+                <Recipe recipe={recipe} key={index}></Recipe>)}
         
         </div>
     )
