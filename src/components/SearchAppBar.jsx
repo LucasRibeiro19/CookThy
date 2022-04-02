@@ -81,7 +81,7 @@ const Search = styled('div')(({ theme }) => ({
                     fontFamily="Poppins"
                     noWrap
                     component="div"
-                    sx={{  display: { xs: 'none', sm: 'block' } }}
+                    sx={{  display: { xs: 'none', sm: 'block', cursor:'pointer' } }}
                     onClick={()=> navigate('/')}
                 >
                     Logo

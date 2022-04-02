@@ -1,4 +1,5 @@
 import React from 'react'
+import FavouriteButton from './FavouriteButton';
 import { useNavigate, Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
@@ -54,12 +55,21 @@ export default function Recipe( {recipe} ) {
             >
                 <Button size="small">Show details</Button>
             </CardActions> */}
-            <Button
-                onClick={handleDetails}
-                variant='contained'
-                color='success'
-             >Show details
-             </Button>
+            <div style={{display: 'flex', justifyContent:'space-between', alignItems:'center'}}>
+                <Button
+                    sx={{width:'50%'}}
+                    onClick={handleDetails}
+                    variant='contained'
+                    color='success'
+                 >
+                    <Typography
+                        variant='body2'
+                    >
+                        Show Details
+                    </Typography>
+                 </Button>
+                 <FavouriteButton/>
+            </div>
             </Card>
         </>
     )
