@@ -39,12 +39,8 @@ function Searchpage( ) {
 
     return ( 
         <>
-<<<<<<< HEAD
-        {/* <h1>{recipes.hits.length === 0 ? `No results for " ${term} "` : `${recipes.count} results for "${term}" :`}</h1> */}
-=======
         <h1>{term}</h1>
         <Filters />
->>>>>>> main
         <Recipes/>
         </>
      );
