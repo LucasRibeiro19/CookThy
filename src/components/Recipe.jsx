@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+
 export default function Recipe( {recipe} ) {
 
     const navigate = useNavigate();
@@ -59,7 +60,6 @@ export default function Recipe( {recipe} ) {
                 color='success'
              >Show details
              </Button>
-      
             </Card>
         </>
     )
