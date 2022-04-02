@@ -92,16 +92,25 @@ const cuisineType = [
 
 export default function Filters () {
 
-    
+    const { MealType,
+        handleChangeMealType,
+        Allergies, 
+        handleChangeAllergies,
+        CuisineType,
+        handleChangeCuisineType,
+        DishType,
+        handleChangeDishType,
+        Diet,
+        handleChangeDiet } = useContext(FilterContext)
 
 
     return(
         <div className= "Filters">
-            <MultipleSelectChip selectorCategorie="Meal Type" choices={mealType}/>
-            <MultipleSelectChip selectorCategorie="Allergies" choices={allergies}/>
-            <MultipleSelectChip selectorCategorie="Cuisine Type" choices={cuisineType}/>
-            <MultipleSelectChip selectorCategorie="Dish Type" choices={dishType}/>
-            <MultipleSelectChip selectorCategorie="Diet" choices={diet}/>
+            <MultipleSelectChip selectorCategorie="Meal Type" choices={mealType} filter={MealType} handleChangeFilter={handleChangeMealType} />
+            <MultipleSelectChip selectorCategorie="Allergies" choices={allergies} filter={Allergies} handleChangeFilter={handleChangeAllergies} />
+            <MultipleSelectChip selectorCategorie="Cuisine Type" choices={cuisineType} filter={CuisineType} handleChangeFilter={handleChangeCuisineType} />
+            <MultipleSelectChip selectorCategorie="Dish Type" choices={dishType} filter={DishType} handleChangeFilter={handleChangeDishType} />
+            <MultipleSelectChip selectorCategorie="Diet" choices={diet} filter={Diet} handleChangeFilter={handleChangeDiet} />
             
         </div>
     );

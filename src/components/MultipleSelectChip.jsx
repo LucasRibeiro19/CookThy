@@ -19,18 +19,6 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
 
 function getStyles(name, personName, theme) {
   return {
@@ -41,19 +29,9 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelectChip({selectorCategorie, choices}) {
+export default function MultipleSelectChip({selectorCategorie, choices, filter, handleChangeFilter }) {
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
+  
 
   return (
     <>
@@ -63,8 +41,8 @@ export default function MultipleSelectChip({selectorCategorie, choices}) {
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
-          value={personName}
-          onChange={handleChange}
+          value={filter}
+          onChange={handleChangeFilter}
           input={<OutlinedInput id="select-multiple-chip" label={ selectorCategorie } />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
@@ -79,7 +57,7 @@ export default function MultipleSelectChip({selectorCategorie, choices}) {
             <MenuItem
               key={name}
               value={name}
-              style={getStyles(name, personName, theme)}
+              style={getStyles(name, filter, theme)}
             >
               {name}
             </MenuItem>
