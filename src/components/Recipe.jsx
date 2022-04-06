@@ -1,5 +1,5 @@
 import React from 'react'
-import FavouriteButton from './FavouriteButton';
+import LikeButton from './LikeButton';
 import { useNavigate, Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
@@ -68,7 +68,7 @@ export default function Recipe( {recipe} ) {
                         Show Details
                     </Typography>
                  </Button>
-                 <FavouriteButton/>
+                 <LikeButton label={label}/>
             </div>
             </Card>
         </>
