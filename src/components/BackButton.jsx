@@ -15,8 +15,9 @@ function BackButton() {
     <div style={{marginTop :'20px', display :'flex' , alignItems:'center', fontWeight:'bold'}}>
         <ArrowBackIcon
             onClick={handleBack}
+            style={{cursor:'pointer'}}
         />
-        <p style={{margin:'0'}} onClick={handleBack} >GO BACK</p>
+        <p style={{margin:'0', cursor:'pointer'}} onClick={handleBack} >GO BACK</p>
     </div>
   )
 }
