@@ -3,6 +3,9 @@ import DrawerContext from '../contexts/DrawerContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ContactPageIcon from '@mui/icons-material/ContactPage';
+import InfoIcon from '@mui/icons-material/Info';
 import { makeStyles } from '@mui/styles';
 // import { makeStyles } from '@mui/material/styles';
 import { Drawer } from '@mui/material';
@@ -42,6 +45,21 @@ function DrawerMenu() {
         text:'Recipes',
         icon: <LocalDiningIcon/>,
         path:'/search'
+      },
+      {
+        text:'Liked Recipes',
+        icon: <FavoriteIcon/>,
+        path:'/liked-recipes'
+      },
+      {
+        text:'Contact',
+        icon: <ContactPageIcon/>,
+        path:'/contact'
+      },
+      {
+        text:'About',
+        icon: <InfoIcon/>,
+        path:'/about'
       }
     ]
 

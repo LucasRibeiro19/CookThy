@@ -13,7 +13,7 @@ function Homepage() {
             {/* <img src="" alt="" /> */}
             <h1>Titre</h1>
             <HomeButton />
-            <Filters />
+            {/* <Filters /> */}
         </div>
      );
 }
