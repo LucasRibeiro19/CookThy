@@ -5,13 +5,14 @@ import Footer from './Footer';
 import Header from './Header';
 import Searchpage from './Searchpage';
 import RecipeDetails from './RecipeDetails';
-import FavouriteRecipes from './FavouriteRecipes';
+import LikedRecipes from './LikedRecipes';
 import ContactPage from './ContactPage';
 import AboutPage from './AboutPage';
 import { SearchContextProvider } from '../contexts/SearchContext';
 import { RecipeContextProvider } from '../contexts/RecipeContext';
 import {ModalContextProvider} from '../contexts/ModalContext';
 import { FilterContextProvider} from '../contexts/FilterContext';
+import {LikeContextProvider} from '../contexts/LikeContext';
 
 
 
@@ -27,16 +28,18 @@ function App() {
           <RecipeContextProvider>
             <SearchContextProvider>
                 <FilterContextProvider>
-                  <Header/>
-                    <Routes>
-                      <Route path="/" element={<Homepage />}></Route>
-                      <Route path="/Search" element={<Searchpage />}></Route>
-                      <Route path='/Recipe/:recipeID' element={<RecipeDetails/>}></Route>
-                      <Route path='/liked-recipes' element={<FavouriteRecipes/>}></Route>                   
-                      <Route path='/contact' element={<ContactPage/>}></Route>                   
-                      <Route path='/about' element={<AboutPage/>}></Route>                   
-                    </Routes>
-                  <Footer/>
+                  <LikeContextProvider>
+                    <Header/>
+                      <Routes>
+                        <Route path="/" element={<Homepage />}></Route>
+                        <Route path="/Search" element={<Searchpage />}></Route>
+                        <Route path='/Recipe/:recipeID' element={<RecipeDetails/>}></Route>
+                        <Route path='/liked-recipes' element={<LikedRecipes/>}></Route>
+                        <Route path='/contact' element={<ContactPage/>}></Route>
+                        <Route path='/about' element={<AboutPage/>}></Route>
+                      </Routes>
+                    <Footer/>
+                  </LikeContextProvider>
                 </FilterContextProvider>  
             </SearchContextProvider>
           </RecipeContextProvider>
