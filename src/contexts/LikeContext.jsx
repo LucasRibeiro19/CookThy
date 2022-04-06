@@ -1,15 +1,10 @@
-import { createContext, useState, useContext } from "react";
-import { RecipeContext } from "./RecipeContext";
-
+import { createContext, useState } from "react";
 
 const LikeContext =  createContext();
 
-
 export const LikeContextProvider = ({children}) => {
-    
+
     const [like, setLike] = useState([]);
-    const {recipes : reqRecipes} = useContext(RecipeContext);
-    const likedRecipes = [];
 
     const isLiked = (label) => {
         return like.some(el => el === label);
@@ -26,10 +21,6 @@ export const LikeContextProvider = ({children}) => {
     };
 
     const handleLike = (label) => {
-//trouver la recette liké dans reqRecipes
-//push cette recette dans likedRecipes
-
-
         if(isLiked(label)){
             disLike(label);
         }else{
@@ -45,7 +36,6 @@ export const LikeContextProvider = ({children}) => {
                 like,
                 handleLike,
                 isLiked,
-                likedRecipes,
             }}
         >
             {children}
