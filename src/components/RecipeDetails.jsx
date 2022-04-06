@@ -1,5 +1,6 @@
 import React from 'react';
 import BackButton from './BackButton';
+import LikeButton from './LikeButton';
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { RecipeContext } from '../contexts/RecipeContext';
@@ -40,6 +41,7 @@ function RecipeDetails() {
         <p>{targetRecipe.recipe.yield} Persons</p>
         <p>Preparation time : {targetRecipe.recipe.totalTime}</p>
         <p>Health Labels : {targetRecipe.recipe.healthLabels.map(healthlabel => [`#${healthlabel} `])}</p>
+        <LikeButton label={params.recipeID}/>
     </div>
   )
 }
