@@ -1,5 +1,5 @@
 import '../searchpage.css';
-import Recipes from "./Recipes";
+import Display from "./Display";
 import { useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import { SearchContext } from '../contexts/SearchContext';
@@ -9,12 +9,13 @@ import Filters from './Filters.jsx';
 import { FilterContext } from '../contexts/FilterContext.jsx';
 import Button from '@mui/material/Button';
 import { FilterNoneSharp } from '@mui/icons-material';
+import './nextPageButton.css'
 
 
 function Searchpage( ) {
 
     const {term} = useContext(SearchContext);
-    const {setRecipes, recipes} = useContext(RecipeContext);
+    const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
         Diet,
         Health,
@@ -45,14 +46,25 @@ function Searchpage( ) {
         const getApi = async () => {
             try{
                 await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
-                .then(res=>setRecipes(res.data))
+                .then(res=>{
+                    setRecipes(res.data)
+                    setDisplay([res.data])
+                })
             } catch (err){
                 console.log(err);
             }
         }
-        getApi();
+        getApi();   
+ 
     }, [term])
 
+    useEffect(()=>{
+        const getNextPage = async (bool) => {
+          bool &&  await axios.get(recipes._links.next.href) 
+                .then(res=>setNextPage(res.data))
+        }
+        getNextPage(recipes && recipes.to !==0 && recipes.to < recipes.count);
+    }, [recipes])
 
 
     useEffect(()=>{
@@ -77,16 +89,18 @@ function Searchpage( ) {
             }
             
             url +=`&app_id=${app_id}&app_key=${app_key}`
-            console.log(url)
             await axios.get(url)
-                .then(res=>setRecipes(res.data))
+                .then(res=>{
+                    setRecipes(res.data)
+                    setDisplay([res.data])}
+                    )
+            console.log(url)
         }
         getApiFilter(filters);
+
     }, [filters])
 
-
-
-
+    console.log(recipes.to !== 0 && recipes.from <= recipes.count)
 
     return ( 
         <>
@@ -99,7 +113,17 @@ function Searchpage( ) {
                     variant='contained'
                     color='success'
                 > Apply filters </Button>
-        <Recipes/>
+        <Display />
+        <div align = "center" className= "nextPageButton"> 
+        <div>
+        {(recipes.to !== 0 && recipes.to < recipes.count) && <Button        
+                    variant="contained" 
+                    color='success'
+                    onClick={handleNextPage}
+                    >See next recipes {recipes.from}-{recipes.to}</Button>}
+        </div>
+        <div></div>
+        </div>
         </>
      );
 }
