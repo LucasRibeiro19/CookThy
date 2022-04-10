@@ -106,7 +106,7 @@ function Searchpage( {term, recipes, nextPage} ) {
         <div>
         <h1>{term}</h1>
         <div className='recipes'>
-        <Recipes recipes={recipesF}></Recipes>
+        <Recipes recipes={display}></Recipes>
         </div>
         <ButtonNext recipes={nextPageF} handleNextPage={handleNextPage}></ButtonNext>
         </div>

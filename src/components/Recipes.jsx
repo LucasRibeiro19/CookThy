@@ -3,10 +3,15 @@ import Recipe from "./Recipe";
 import './recipes.css'
 
 
-export default function Recipes( {recipes} ) {
+export default function Recipes( {display} ) {
 
-    //const rcp = display && display.map(recipes => recipes.hits && recipes.hits);
-    //console.log(rcp)
+    const rcp = display && display.map(recipes => recipes.hits && recipes.hits);
+    console.log(rcp)
+
+   //<div className='recipes'>
+    //{ recipes.hits && recipes.hits
+    //    .map(recipe=><Recipe recipe={recipe}></Recipe>)}    
+    //</div>   
 
     return (
         <>
