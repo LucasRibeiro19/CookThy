@@ -1,115 +1,118 @@
 import '../searchpage.css';
-import Recipes from "./Recipes";
-import { useState, useEffect } from "react";
-import axios from "axios"
-import { SettingsSystemDaydreamTwoTone } from '@mui/icons-material';
-import Filters from './Filters';
-import labels from '../labels.json';
-import './filter.css'
-import './recipes.css'
-import ButtonNext from './ButtonNext'
+import Display from "./Display";
+import { useContext, useEffect, useState } from "react";
+import axios from 'axios';
+import { SearchContext } from '../contexts/SearchContext';
+import { RecipeContext } from '../contexts/RecipeContext';
+import Filters from './Filters.jsx';
+import { FilterContext } from '../contexts/FilterContext.jsx';
+import Button from '@mui/material/Button';
+import ButtonNext from './ButtonNext';
 
-function Searchpage( {term, recipes, nextPage} ) {
 
-    const removeFilter = (labels, label) => {
-        return labels.filter((elm) => elm !==label)
+function Searchpage( ) {
+
+    const {term} = useContext(SearchContext);
+    const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
+    const {
+        Diet,
+        Health,
+        DishType,
+        CuisineType,
+        MealType
+    } = useContext(FilterContext);
+
+    const [filters, setFilters] = useState({
+        diet : [],
+        health : [],
+        dishType : [],
+        cuisineType : [],
+        mealType : []
+    })
+
+    const handleFilters = (event) =>{
+        setFilters({
+            diet : Diet,
+            health : Health,
+            dishType : DishType,
+            cuisineType : CuisineType,
+            mealType : MealType
+        })
     }
-
-    const handleFilterHealth = (event) => {
-        if (!event.target.checked){
-            setHealthFilter(removeFilter(healthFilter, event.target.name))
+    
+    useEffect(()=>{
+        const getApi = async () => {
+            try{
+                await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
+                .then(res=>{
+                    setRecipes(res.data)
+                    setDisplay([res.data])
+                })
+            } catch (err){
+                console.log(err);
+            }
         }
-        else {
-            setHealthFilter([...healthFilter, event.target.name])
+        getApi();   
+ 
+    }, [term])
+
+    useEffect(()=>{
+        const getNextPage = async (bool) => {
+          bool &&  await axios.get(recipes._links.next.href) 
+                .then(res=>setNextPage(res.data))
         }
-
-        console.log(healthFilter)
-        console.log(event.target.name)
-    }
-
-    const handleFilterDiet = (event) => {
-        if (!event.target.checked){
-            setDietFilter(removeFilter(dietFilter, event.target.name))
-        }
-        else {
-            setDietFilter([...dietFilter, event.target.name])
-        }
-
-        console.log(dietFilter)
-        console.log(event.target.name) 
-    }
-
-    const { health, diet } = labels;
-
-    const [healthFilter, setHealthFilter]=useState([])
-    const [dietFilter, setDietFilter]=useState([])
-    const [recipesF, setRecipesF] = useState(recipes)
-    const [nextPageF, setNextPageF] = useState(nextPage)
-    const [display, setDisplay] = useState([recipesF])
+        getNextPage(recipes && recipes.to !==0 && recipes.to < recipes.count);
+    }, [recipes])
 
 
     useEffect(()=>{
-        const getApiFilter = async (filterH, filterD) => {
+        const getApiFilter = async (filters) => {
             const app_id = "82995fc0";
             const app_key = "ee3fd4c5fe78ab26de55a1aaa3f0c94c";
-            let url = `https://api.edamam.com/api/recipes/v2?type=public&q=${term}`
-            if (filterH.length !== 0 & filterD.length !== 0){
-                url += `&health=${filterH.join('&health=').toLowerCase()}`+`&diet=${filterD.join('&diet=').toLowerCase()}`+`&app_id=${app_id}&app_key=${app_key}`
+            let url = `https://api.edamam.com/api/recipes/v2?type=public&q=${term}`;
+            if (filters.diet.length !==0){
+                url += `&diet=${filters.diet.join('&diet=').toLowerCase()}`
             }
-            else if (filterH.length === 0 & filterD.length !== 0){
-                url += `&diet=${filterD.join('&diet=').toLowerCase()}`+`&app_id=${app_id}&app_key=${app_key}`
+            if (filters.health.length !==0){
+                url += `&health=${filters.health.join('&health=').toLowerCase()}`
             }
-            else if (filterH.length !== 0 & filterD.length === 0){
-                url += `&health=${filterH.join('&health=').toLowerCase()}`+`&app_id=${app_id}&app_key=${app_key}`
+            if (filters.dishType.length !== 0){
+                url += `&dishType=${filters.dishType.join('&dishType=').toLowerCase()}`
             }
-            else {
-                url +=`&app_id=${app_id}&app_key=${app_key}`
+            if (filters.cuisineType.length !== 0){
+                url += `&cuisineType=${filters.cuisineType.join('&cuisineType=').toLowerCase()}`
             }
-            console.log(url)
+            if (filters.mealType.length !== 0){
+                url += `&mealType=${filters.mealType.join('&mealType=').toLowerCase()}`
+            }
+            
+            url +=`&app_id=${app_id}&app_key=${app_key}`
             await axios.get(url)
-                .then(res=>setRecipesF(res.data))
+                .then(res=>{
+                    setRecipes(res.data)
+                    setDisplay([res.data])}
+                    )
+            console.log(url)
         }
-         getApiFilter(healthFilter, dietFilter);
-      }, [healthFilter, dietFilter])
+        getApiFilter(filters);
 
+    }, [filters])
 
-      const handleNextPage = (event) =>{
-        console.log(recipesF.from)
-        setRecipesF(nextPageF)
-        setDisplay([...display, recipesF])
-        console.log(recipesF)
-      }
-
-      useEffect(()=>{
-        const getPageF = async ()=>{
-            await axios.get(recipesF._links.next.href)
-                .then (res=>setNextPageF(res.data))  
-        }
-        getPageF();
-
-    }, [recipesF])
-
-    useEffect(()=>{
-        if (recipesF.from === 1){
-            setDisplay([recipesF])
-        }
-    }, [recipesF])
-
-
+    console.log(recipes.to !== 0 && recipes.from <= recipes.count)
 
     return ( 
         <>
-        <div className='filter'>
-            <Filters labels={health} handleFilter={handleFilterHealth}></Filters>
-            <Filters labels={diet} handleFilter={handleFilterDiet}></Filters>
-        </div>
-        <div>
+        {/* <h1>{recipes.hits.length === 0 ? `No results for " ${term} "` : `${recipes.count} results for "${term}" :`}</h1> */}
         <h1>{term}</h1>
-        <div className='recipes'>
-        <Recipes recipes={display}></Recipes>
-        </div>
-        <ButtonNext recipes={nextPageF} handleNextPage={handleNextPage}></ButtonNext>
-        </div>
+        <Filters />
+        <Button
+                    sx={{width:'50%'}}
+                    onClick={handleFilters}
+                    variant='contained'
+                    color='success'
+                > Apply filters </Button>
+        <Display />
+        <ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>
         </>
      );
 }

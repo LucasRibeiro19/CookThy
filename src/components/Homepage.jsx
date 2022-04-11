@@ -1,14 +1,19 @@
 import HomeButton from './HomeButton';
-import HomeSearchbar from './HomeSearchbar';
-import '../homepage.css';
+import HomeMain from './HomeMain';
+import '../homepage.css'
+import Filters from './Filters.jsx'
 
-function Homepage( {handleInterTerm, handleTerm, interTerm} ) {
+
+
+
+function Homepage() {
+    console.log(2)
     return ( 
         <div className="mainHome">
             {/* <img src="" alt="" /> */}
             <h1>Titre</h1>
-            <HomeSearchbar handleInterTerm={handleInterTerm}/>
-            <HomeButton term={interTerm} handleTerm={handleTerm}/>
+            <HomeButton />
+            {/* <Filters /> */}
         </div>
      );
 }
