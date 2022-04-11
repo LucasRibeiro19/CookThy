@@ -92,13 +92,13 @@ function Searchpage( ) {
                     setRecipes(res.data)
                     setDisplay([res.data])}
                     )
-            console.log(url)
+            // console.log(url)
         }
         getApiFilter(filters);
 
     }, [filters])
 
-    console.log(recipes.to !== 0 && recipes.from <= recipes.count)
+    // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
 
     return ( 
         <>
