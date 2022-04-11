@@ -3,9 +3,9 @@ import Recipe from "./Recipe";
 import '../recipes.css';
 import { RecipeContext } from '../contexts/RecipeContext';
 
-export default function Recipes() {
+export default function Recipes( {recipes} ) {
 
-    const {recipes} = useContext(RecipeContext);
+    //const {recipes} = useContext(RecipeContext);
     // console.log(recipes);
     return (
         <div className='recipeslist'>
@@ -13,5 +13,7 @@ export default function Recipes() {
                 <Recipe recipe={recipe} key={index}></Recipe>)}
         
         </div>
+        
     )
 }
+

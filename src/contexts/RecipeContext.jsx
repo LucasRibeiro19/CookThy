@@ -6,8 +6,13 @@ export const RecipeContext = createContext()
 export const RecipeContextProvider = ({children}) => {
 
     const [recipes, setRecipes] = useState([])
+    const [nextPage, setNextPage] = useState({})
+    const [display, setDisplay] = useState([]);
 
-    // console.log(recipes);
+    const handleNextPage = (event) =>{
+        setRecipes(nextPage)
+        setDisplay([...display, recipes])
+      }
 
 
     return (
@@ -15,6 +20,11 @@ export const RecipeContextProvider = ({children}) => {
             value={{
                 recipes,
                 setRecipes,
+                nextPage,
+                setNextPage,
+                handleNextPage,
+                display, 
+                setDisplay
             }}
         >
             {children}
