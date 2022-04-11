@@ -62,6 +62,17 @@ const handleChangeDiet = (event) => {
     );
   };
 
+const [Health , setHealth] = useState([])
+const handleChangeHealth = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setHealth(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
 
 
 
@@ -76,7 +87,9 @@ const handleChangeDiet = (event) => {
             DishType,
             handleChangeDishType,
             Diet,
-            handleChangeDiet
+            handleChangeDiet,
+            Health,
+            handleChangeHealth
         }}>
             { children }
         </FilterContext.Provider>

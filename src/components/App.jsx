@@ -15,11 +15,7 @@ import { FilterContextProvider} from '../contexts/FilterContext';
 import {LikeContextProvider} from '../contexts/LikeContext';
 
 
-
-
-
 function App() {
-
 
 
   return (
