@@ -14,18 +14,7 @@ function RecipeDetails() {
 
     const { like } = useContext(LikeContext);
 
-    const { recipes : likedRecipes} = useContext(LikeContext);
-    const { recipes : reqRecipes} = useContext(RecipeContext);
-
-    let recipes = [];
-
-    if(like.includes(label => label === params.recipeID)){
-        recipes = likedRecipes;
-        console.log(recipes);
-      }else{
-        recipes = reqRecipes;
-        console.log(recipes);
-      };
+    const {recipes} = useContext(RecipeContext);
 
 
     const {hits} = recipes;
