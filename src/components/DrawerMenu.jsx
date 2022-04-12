@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import DrawerContext from '../contexts/DrawerContext';
-import LikeContext from '../contexts/LikeContext';
+import {RecipeContext} from '../contexts/RecipeContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
@@ -37,7 +37,7 @@ function DrawerMenu() {
   
   const {open, setOpen} = useContext(DrawerContext);
 
-  const {like} = useContext(LikeContext)
+  const {like} = useContext(RecipeContext)
 
     const menuItems = [
       {

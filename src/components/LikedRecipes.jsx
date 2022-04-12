@@ -1,17 +1,20 @@
 import React from 'react';
+import LikedRecipe from './LikedRecipe';
 import { useContext } from 'react';
-import LikeContext from '../contexts/LikeContext';
+import {RecipeContext} from '../contexts/RecipeContext';
 
 
 function LikedRecipes() {
   
-  const {like} = useContext(LikeContext);
+  const {like} = useContext(RecipeContext);
+
+  console.log(like);
   
 
   return (
     <div style={{padding:'0 24px 0 24px'}}>
       <h1>{like.length} recipes liked </h1>
-      <p>{like}</p>
+      {like.map(likedRecipe => <LikedRecipe likedRecipe={likedRecipe}/>)}
     </div>
   )
 }
