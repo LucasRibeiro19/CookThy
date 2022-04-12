@@ -12,10 +12,11 @@ import ButtonNext from './ButtonNext';
 function Searchpage( ) {
 
     const {term} = useContext(SearchContext);
-    const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
+    const {setRecipes, recipes, nextPage, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
         filters,
-        handleFilters
+        handleFilters,
+        countFilters
     } = useContext(FilterContext);
 
     useEffect(()=>{
@@ -69,7 +70,7 @@ function Searchpage( ) {
         <h1>{term}</h1>
         <Filters />
         <Display />
-        <ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>
+        <ButtonNext recipes={nextPage} handleNextPage={handleNextPage}/>
         </>
      );
 }

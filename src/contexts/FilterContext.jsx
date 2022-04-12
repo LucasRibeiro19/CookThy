@@ -91,6 +91,16 @@ const handleFilters = (event) =>{
     })
 }
 
+const countFilters = () =>{
+  const len = MealType.length + CuisineType.length + DishType.length + Diet.length + Health.length
+  if (len === 0){
+    return ""
+  }
+  else {
+    return MealType.length + CuisineType.length + DishType.length + Diet.length + Health.length
+  }
+}
+
 
     return (
         <FilterContext.Provider value = {{
@@ -107,7 +117,8 @@ const handleFilters = (event) =>{
             Health,
             handleChangeHealth,
             filters,
-            handleFilters
+            handleFilters,
+            countFilters
         }}>
             { children }
         </FilterContext.Provider>

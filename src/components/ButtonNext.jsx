@@ -10,7 +10,7 @@ export default function ButtonNext( {recipes, handleNextPage} ) {
                     variant="contained" 
                     color='success'
                     onClick={handleNextPage}
-                    >See next recipes {recipes.from}-{recipes.to}</Button>}
+                    >See {recipes.to-recipes.from+1} next recipes</Button>}
         </div>
     )
 }
