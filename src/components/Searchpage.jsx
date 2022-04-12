@@ -75,7 +75,7 @@ function Searchpage( ) {
                     setRecipes(res.data)
                     setDisplay([res.data])}
                     )
-            console.log(url)
+            // console.log(url)
         }
         getApiFilter(filters);
         console.log(filters);
