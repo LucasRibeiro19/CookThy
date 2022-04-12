@@ -5,22 +5,6 @@ export const mealType = [
     'Snack',
     'Tea Time'
 ];
-export const allergies = [
-    'Celery-free',
-    'Crustacean-free',
-    'Dairy-free',
-    'Egg-free',
-    'Fish-free',
-    'Gluten-free',
-    'Lupine-free',
-    'Mustard-free',
-    'Peanut-free',
-    'Sesame-free',
-    'Shellfish-free',
-    'Soy-free',
-    'Tree-nut-free',
-    'Wheat-free'
-  ];
 export const dishType = [
     'Biscuits and cookies',
     'Breab',
@@ -80,4 +64,41 @@ export const cuisineType = [
     'Nordic',
     'South American',
     'South East Asia'
+];
+export const health = [
+    "Alcohol-Cocktail",
+    "Alcohol-Free",
+    "Celery-Free",
+    "Crustcean-Free",
+    "Dairy-Free",
+    "DASH",
+    "Egg-Free",
+    "Fish-Free",
+    "FODMAP-Free",
+    "Gluten-Free",
+    "Immuno-Supportive",
+    "Keto-Friendly",
+    "Kidney-Friendly",
+    "Kosher",
+    "Low Potassium",
+    "Low Sugar",
+    "Lupine-Free",
+    "Mediterranean",
+    "Mollusk-Free",
+    "Mustard-Free",
+    "No oil added",
+    "Paleo",
+    "Peanut-Free",
+    "Pescatarian",
+    "Pork-Free",
+    "Red-Meat-Free",
+    "Sesame-Free",
+    "Shellfish-Free",
+    "Soy-Free",
+    "Sugar-Conscious",
+    "Sulfite-Free",
+    "Tree-Nut-Free",
+    "Vegan",
+    "Vegetarian",
+    "Wheat-Free"
 ];
