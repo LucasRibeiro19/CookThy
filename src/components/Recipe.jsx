@@ -68,7 +68,7 @@ export default function Recipe( {recipe} ) {
                         Show Details
                     </Typography>
                  </Button>
-                 <LikeButton label={label}/>
+                 <LikeButton recipe={recipe}/>
             </div>
             </Card>
         </>

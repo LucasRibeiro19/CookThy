@@ -18,7 +18,8 @@ export default function Filters () {
         handleChangeDiet,
         Health,
         handleChangeHealth,
-        handleFilters
+        handleFilters,
+        countFilters
     } = useContext(FilterContext)
 
 
@@ -34,7 +35,7 @@ export default function Filters () {
                     onClick={handleFilters}
                     variant='outlined'
                     color='primary'
-                > Apply filters </Button>
+                > Apply {countFilters()} filters </Button>
             
         </div>
     );

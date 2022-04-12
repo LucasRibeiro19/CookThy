@@ -58,7 +58,6 @@ function Searchpage( ) {
             // console.log(url)
         }
         getApiFilter(filters);
-        console.log(filters);
 
     }, [filters, term])
 
