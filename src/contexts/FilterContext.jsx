@@ -73,7 +73,23 @@ const handleChangeHealth = (event) => {
     );
   };
 
+  const [filters, setFilters] = useState({
+    diet : Diet,
+    health : Health,
+    dishType : DishType,
+    cuisineType : CuisineType,
+    mealType : MealType
+})
 
+const handleFilters = (event) =>{
+    setFilters({
+        diet : Diet,
+        health : Health,
+        dishType : DishType,
+        cuisineType : CuisineType,
+        mealType : MealType
+    })
+}
 
 
     return (
@@ -89,7 +105,9 @@ const handleChangeHealth = (event) => {
             Diet,
             handleChangeDiet,
             Health,
-            handleChangeHealth
+            handleChangeHealth,
+            filters,
+            handleFilters
         }}>
             { children }
         </FilterContext.Provider>

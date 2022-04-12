@@ -15,46 +15,29 @@ function Searchpage( ) {
     const {term} = useContext(SearchContext);
     const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
-        Diet,
-        Health,
-        DishType,
-        CuisineType,
-        MealType
+        filters,
+        handleFilters
     } = useContext(FilterContext);
 
-    const [filters, setFilters] = useState({
-        diet : [],
-        health : [],
-        dishType : [],
-        cuisineType : [],
-        mealType : []
-    })
-
-    const handleFilters = (event) =>{
-        setFilters({
-            diet : Diet,
-            health : Health,
-            dishType : DishType,
-            cuisineType : CuisineType,
-            mealType : MealType
-        })
-    }
+   
     
-    useEffect(()=>{
-        const getApi = async () => {
-            try{
-                await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
-                .then(res=>{
-                    setRecipes(res.data)
-                    setDisplay([res.data])
-                })
-            } catch (err){
-                console.log(err);
-            }
-        }
-        getApi();   
+    // useEffect(()=>{
+    //     const getApi = async () => {
+    //         try{
+    //             await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
+    //             .then(res=>{
+    //                 setRecipes(res.data)
+    //                 setDisplay([res.data])
+    //             })
+    //         } catch (err){
+    //             console.log(err);
+    //         }
+    //     }
+    //     getApi();   
+    //     console.log(term);
  
-    }, [term])
+    // }, [term])
+
 
     useEffect(()=>{
         const getNextPage = async (bool) => {
@@ -95,10 +78,11 @@ function Searchpage( ) {
             console.log(url)
         }
         getApiFilter(filters);
+        console.log(filters);
 
-    }, [filters])
+    }, [filters, term])
 
-    console.log(recipes.to !== 0 && recipes.from <= recipes.count)
+    // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
 
     return ( 
         <>
