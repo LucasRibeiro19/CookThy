@@ -16,7 +16,8 @@ function Searchpage( ) {
     const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
         filters,
-        handleFilters
+        handleFilters,
+        countFilters
     } = useContext(FilterContext);
 
     useEffect(()=>{
@@ -74,7 +75,7 @@ function Searchpage( ) {
                     onClick={handleFilters}
                     variant='contained'
                     color='success'
-                > Apply filters </Button>
+                > Apply {countFilters()} filters </Button>
         <Display />
         <ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>
         </>

@@ -91,6 +91,10 @@ const handleFilters = (event) =>{
     })
 }
 
+const countFilters = () =>{
+  return MealType.length + CuisineType.length + DishType.length + Diet.length + Health.length
+}
+
 
     return (
         <FilterContext.Provider value = {{
@@ -107,7 +111,8 @@ const handleFilters = (event) =>{
             Health,
             handleChangeHealth,
             filters,
-            handleFilters
+            handleFilters,
+            countFilters
         }}>
             { children }
         </FilterContext.Provider>
