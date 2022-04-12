@@ -11,7 +11,7 @@ export const RecipeContextProvider = ({children}) => {
 
     const handleNextPage = (event) =>{
         setRecipes(nextPage)
-        setDisplay([...display, recipes])
+        setDisplay([...display, nextPage])
       }
 
 
