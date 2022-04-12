@@ -27,7 +27,7 @@ export const LikeContextProvider = ({children}) => {
             addLike(label);
         }
     }
-    console.log(like);
+    // console.log(like);
 
 
     return (
