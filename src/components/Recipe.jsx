@@ -33,6 +33,7 @@ export default function Recipe( {recipe} ) {
             <CardContent>
                 <Typography
                     sx={{textAlign:'center'}}
+                    fontFamily="Poppins"
                     gutterBottom 
                     variant="h5" 
                     component="div"

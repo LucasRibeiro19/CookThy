@@ -6,18 +6,55 @@ import { SearchContext } from '../contexts/SearchContext';
 import { RecipeContext } from '../contexts/RecipeContext';
 import Filters from './Filters.jsx';
 import { FilterContext } from '../contexts/FilterContext.jsx';
+import Button from '@mui/material/Button';
 import ButtonNext from './ButtonNext';
 
 
 function Searchpage( ) {
 
     const {term} = useContext(SearchContext);
-    const {setRecipes, recipes, nextPage, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
+    const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
-        filters,
-        handleFilters,
-        countFilters
+        Diet,
+        Health,
+        DishType,
+        CuisineType,
+        MealType
     } = useContext(FilterContext);
+
+    const [filters, setFilters] = useState({
+        diet : [],
+        health : [],
+        dishType : [],
+        cuisineType : [],
+        mealType : []
+    })
+
+    const handleFilters = (event) =>{
+        setFilters({
+            diet : Diet,
+            health : Health,
+            dishType : DishType,
+            cuisineType : CuisineType,
+            mealType : MealType
+        })
+    }
+    
+    useEffect(()=>{
+        const getApi = async () => {
+            try{
+                await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
+                .then(res=>{
+                    setRecipes(res.data)
+                    setDisplay([res.data])
+                })
+            } catch (err){
+                console.log(err);
+            }
+        }
+        getApi();   
+ 
+    }, [term])
 
     useEffect(()=>{
         const getNextPage = async (bool) => {
@@ -59,7 +96,7 @@ function Searchpage( ) {
         }
         getApiFilter(filters);
 
-    }, [filters, term])
+    }, [filters])
 
     // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
 
@@ -68,8 +105,14 @@ function Searchpage( ) {
         {/* <h1>{recipes.hits.length === 0 ? `No results for " ${term} "` : `${recipes.count} results for "${term}" :`}</h1> */}
         <h1>{term}</h1>
         <Filters />
+        <Button
+                    sx={{width:'50%'}}
+                    onClick={handleFilters}
+                    variant='contained'
+                    color='success'
+                > Apply filters </Button>
         <Display />
-        <ButtonNext recipes={nextPage} handleNextPage={handleNextPage}/>
+        <ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>
         </>
      );
 }

@@ -10,6 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
 import { styled, alpha } from '@mui/material/styles';
+import logo from '../logo.png'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -78,7 +79,6 @@ const Search = styled('div')(({ theme }) => ({
           <>
             <Toolbar 
                 style={{display : 'flex', justifyContent :'space-between', alignItems:'center'}}>
-                <img src={img} alt="Logo" height="200px"/>  
                 <Typography
                     variant="h2"
                     fontFamily="Poppins"
@@ -87,8 +87,8 @@ const Search = styled('div')(({ theme }) => ({
                     component="div"
                     sx={{  display: { xs: 'none', sm: 'block', cursor:'pointer' } }}
                     onClick={()=> navigate('/')}
-                >
-                    Healthy Cooking
+                >  
+                <img src={logo} alt="Logo" width='100' height='39'/>
                 </Typography>
                 <Search>
                     <SearchIconWrapper>
