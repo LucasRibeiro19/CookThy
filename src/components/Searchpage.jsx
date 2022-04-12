@@ -19,26 +19,6 @@ function Searchpage( ) {
         handleFilters
     } = useContext(FilterContext);
 
-   
-    
-    // useEffect(()=>{
-    //     const getApi = async () => {
-    //         try{
-    //             await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
-    //             .then(res=>{
-    //                 setRecipes(res.data)
-    //                 setDisplay([res.data])
-    //             })
-    //         } catch (err){
-    //             console.log(err);
-    //         }
-    //     }
-    //     getApi();   
-    //     console.log(term);
- 
-    // }, [term])
-
-
     useEffect(()=>{
         const getNextPage = async (bool) => {
           bool &&  await axios.get(recipes._links.next.href) 
