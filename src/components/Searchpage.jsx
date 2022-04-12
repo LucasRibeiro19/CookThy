@@ -6,7 +6,6 @@ import { SearchContext } from '../contexts/SearchContext';
 import { RecipeContext } from '../contexts/RecipeContext';
 import Filters from './Filters.jsx';
 import { FilterContext } from '../contexts/FilterContext.jsx';
-import Button from '@mui/material/Button';
 import ButtonNext from './ButtonNext';
 
 
@@ -69,12 +68,6 @@ function Searchpage( ) {
         {/* <h1>{recipes.hits.length === 0 ? `No results for " ${term} "` : `${recipes.count} results for "${term}" :`}</h1> */}
         <h1>{term}</h1>
         <Filters />
-        <Button
-                    sx={{width:'50%'}}
-                    onClick={handleFilters}
-                    variant='contained'
-                    color='success'
-                > Apply {countFilters()} filters </Button>
         <Display />
         <ButtonNext recipes={nextPage} handleNextPage={handleNextPage}/>
         </>
