@@ -4,7 +4,6 @@ import LikeButton from './LikeButton';
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { RecipeContext } from '../contexts/RecipeContext';
-import  LikeContext  from '../contexts/LikeContext';
 import Button from '@mui/material/Button';
 
 
@@ -12,9 +11,7 @@ function RecipeDetails() {
     
     const params = useParams();
 
-    const { like } = useContext(LikeContext);
-
-    const {recipes} = useContext(RecipeContext);
+    const {recipes, like} = useContext(RecipeContext);
 
 
     const {hits} = recipes;

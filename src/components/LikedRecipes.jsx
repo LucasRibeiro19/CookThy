@@ -1,11 +1,11 @@
 import React from 'react';
 import { useContext } from 'react';
-import LikeContext from '../contexts/LikeContext';
+import {RecipeContext} from '../contexts/RecipeContext';
 
 
 function LikedRecipes() {
   
-  const {like} = useContext(LikeContext);
+  const {like} = useContext(RecipeContext);
   
 
   return (

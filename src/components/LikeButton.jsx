@@ -1,5 +1,5 @@
 import React from 'react'
-import LikeContext from '../contexts/LikeContext';
+import {RecipeContext} from '../contexts/RecipeContext';
 import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHeartCircleMinus} from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +7,7 @@ import {faHeartCirclePlus} from '@fortawesome/free-solid-svg-icons';
 
 function FavouriteButton({label}) {
 
-  const {handleLike, isLiked} = useContext(LikeContext)
+  const {handleLike, isLiked} = useContext(RecipeContext)
 
   return (
     <>

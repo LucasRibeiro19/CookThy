@@ -12,7 +12,6 @@ import { SearchContextProvider } from '../contexts/SearchContext';
 import { RecipeContextProvider } from '../contexts/RecipeContext';
 import {ModalContextProvider} from '../contexts/ModalContext';
 import { FilterContextProvider} from '../contexts/FilterContext';
-import {LikeContextProvider} from '../contexts/LikeContext';
 
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
           <RecipeContextProvider>
             <SearchContextProvider>
                 <FilterContextProvider>
-                  <LikeContextProvider>
                     <Header/>
                       <Routes>
                         <Route path="/" element={<Homepage />}></Route>
@@ -35,7 +33,6 @@ function App() {
                         <Route path='/about' element={<AboutPage/>}></Route>
                       </Routes>
                     <Footer/>
-                  </LikeContextProvider>
                 </FilterContextProvider>  
             </SearchContextProvider>
           </RecipeContextProvider>

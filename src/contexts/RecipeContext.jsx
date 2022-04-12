@@ -12,7 +12,31 @@ export const RecipeContextProvider = ({children}) => {
     const handleNextPage = (event) =>{
         setRecipes(nextPage)
         setDisplay([...display, recipes])
-      }
+    }
+
+    const [like, setLike] = useState([]);
+
+    const isLiked = (label) => {
+        return like.some(el => el === label);
+    };
+
+    const addLike = (label) => {
+        setLike((prevstate) => [...prevstate, label]);
+    };
+
+    const disLike = (label) => {
+        setLike((prevstate) => {
+            return prevstate.filter(el => el !== label)
+        })
+    };
+
+    const handleLike = (label) => {
+        if(isLiked(label)){
+            disLike(label);
+        }else{
+            addLike(label);
+        }
+    }
 
 
     return (
@@ -24,7 +48,10 @@ export const RecipeContextProvider = ({children}) => {
                 setNextPage,
                 handleNextPage,
                 display, 
-                setDisplay
+                setDisplay,
+                handleLike,
+                like,
+                isLiked
             }}
         >
             {children}
