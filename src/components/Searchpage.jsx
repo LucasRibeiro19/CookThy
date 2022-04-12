@@ -13,7 +13,7 @@ import ButtonNext from './ButtonNext';
 function Searchpage( ) {
 
     const {term} = useContext(SearchContext);
-    const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
+    const {setRecipes, recipes, nextPage, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
         filters,
         handleFilters,
@@ -77,7 +77,7 @@ function Searchpage( ) {
                     color='success'
                 > Apply {countFilters()} filters </Button>
         <Display />
-        <ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>
+        <ButtonNext recipes={nextPage} handleNextPage={handleNextPage}/>
         </>
      );
 }

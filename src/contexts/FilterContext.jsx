@@ -92,7 +92,13 @@ const handleFilters = (event) =>{
 }
 
 const countFilters = () =>{
-  return MealType.length + CuisineType.length + DishType.length + Diet.length + Health.length
+  const len = MealType.length + CuisineType.length + DishType.length + Diet.length + Health.length
+  if (len === 0){
+    return ""
+  }
+  else {
+    return MealType.length + CuisineType.length + DishType.length + Diet.length + Health.length
+  }
 }
 
 
