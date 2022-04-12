@@ -30,7 +30,7 @@ export default function Filters () {
             <MultipleSelectChip selectorCategorie="Diet" choices={diet} filter={Diet} handleChangeFilter={handleChangeDiet} />
             <MultipleSelectChip selectorCategorie="Health and allergies" choices={health} filter={Health} handleChangeFilter={handleChangeHealth} />
             <Button
-                    sx={{width: '300px', margin: '8px',}}
+                    sx={{width: '300px', height:'56px', margin: '8px'}}
                     onClick={handleFilters}
                     variant='outlined'
                     color='primary'

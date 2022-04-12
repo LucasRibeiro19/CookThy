@@ -1,6 +1,6 @@
 import React from 'react'
 import LikeButton from './LikeButton';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -30,7 +30,7 @@ export default function Recipe( {recipe} ) {
                 image={recipe.recipe.image}
                 alt="green iguana"
             />
-            <CardContent>
+            <CardContent sx={{bgColor:"#FAF1E6"}}>
                 <Typography
                     sx={{textAlign:'center'}}
                     gutterBottom 
@@ -60,7 +60,7 @@ export default function Recipe( {recipe} ) {
                     sx={{width:'50%'}}
                     onClick={handleDetails}
                     variant='contained'
-                    color='success'
+                    color='primary'
                  >
                     <Typography
                         variant='body2'
