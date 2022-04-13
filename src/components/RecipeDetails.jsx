@@ -43,7 +43,7 @@ function RecipeDetails() {
           <p>{targetRecipe.recipe.yield} Persons</p>
           <p>Preparation time : {targetRecipe.recipe.totalTime}</p>
           <p>Health Labels : {targetRecipe.recipe.healthLabels.map(healthlabel => [`#${healthlabel} `])}</p>
-          <LikeButton label={params.recipeID}/>
+          <LikeButton label={params.recipeID} recipe={targetRecipe}/>
       </div>
     </>
   )

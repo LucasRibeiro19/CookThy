@@ -9,7 +9,7 @@ function LikedRecipes() {
   
   const {like} = useContext(RecipeContext);
 
-  console.log(like);
+  // console.log(like);
   
 
   return (
