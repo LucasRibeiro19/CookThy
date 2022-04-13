@@ -10,8 +10,8 @@ export const RecipeContextProvider = ({children}) => {
     const [display, setDisplay] = useState([]);
 
     const handleNextPage = (event) =>{
+        setDisplay([...display, nextPage])
         setRecipes(nextPage)
-        setDisplay([...display, recipes])
     }
 
 
