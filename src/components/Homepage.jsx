@@ -11,15 +11,15 @@ function Homepage() {
         <div className="mainHome">
             {/* <img src="" alt="" /> */}
             <Typography
-                    variant="h2"
+                    variant="h1"
                     fontFamily="Poppins"
-                    color='primary'
+                    color='#01937C'
                     noWrap
                     component="div"
-                    sx={{  display: { xs: 'none', sm: 'block', cursor:'pointer' } }}
+                    sx={{  display: { xs: 'none', sm: 'block', fontWeight:'bold'} }}
                     
                 >  
-                Healthy Coooock
+                Cook'Thy
                 </Typography>
             <HomeButton />
             {/* <Filters /> */}
