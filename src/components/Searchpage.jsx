@@ -101,9 +101,8 @@ function Searchpage( ) {
     // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
 
     return ( 
-        <>
-        {/* <h1>{recipes.hits.length === 0 ? `No results for " ${term} "` : `${recipes.count} results for "${term}" :`}</h1> */}
-        <h1>{term}</h1>
+        <div style={{padding: '0 1em 0 1em'}}>
+        {term.length === 0 ? <h1>Search some recipe...</h1> : <h1>{recipes.hits.length === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :`}</h1>}
         <Filters />
         <Button
                     sx={{width:'50%'}}
@@ -113,7 +112,7 @@ function Searchpage( ) {
                 > Apply filters </Button>
         <Display />
         <ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>
-        </>
+        </div>
      );
 }
 
