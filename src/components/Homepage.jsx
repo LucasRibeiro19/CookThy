@@ -14,7 +14,6 @@ function Homepage() {
                     variant="h1"
                     fontFamily="Poppins"
                     color='#01937C'
-                    noWrap
                     component="div"
                     sx={{  display: { xs: 'none', sm: 'block', fontWeight:'bold'} }}
                     

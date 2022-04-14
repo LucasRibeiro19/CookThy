@@ -8,6 +8,7 @@ import Filters from './Filters.jsx';
 import { FilterContext } from '../contexts/FilterContext.jsx';
 import Button from '@mui/material/Button';
 import ButtonNext from './ButtonNext';
+import { Typography } from '@mui/material';
 
 
 function Searchpage( ) {
@@ -102,16 +103,17 @@ function Searchpage( ) {
 
     return ( 
         <div style={{padding: '0 1em 0 1em'}}>
-        {term.length === 0 ? <h1>Search some recipe...</h1> : <h1>{recipes.hits.length === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :`}</h1>}
-        <Filters />
-        <Button
-                    sx={{width:'50%'}}
-                    onClick={handleFilters}
-                    variant='contained'
-                    color='success'
-                > Apply filters </Button>
-        <Display />
-        <ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>
+            <Typography
+                    variant="h2"
+                    fontFamily="Poppins"
+                    color='#01937C'
+                    component="div"
+                    sx={{  display: {fontWeight:'bold'} }} 
+                >{term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :`}
+            </Typography>
+            {recipes.count === 0 ? null : <Filters handleFilters={handleFilters}/>}
+            <Display />
+            {recipes.to < 20 ? null :<ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>}
         </div>
      );
 }

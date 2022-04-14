@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import { mealType, dishType, diet, health, cuisineType } from "../FilterSelectorLists"
 
 
-export default function Filters () {
+export default function Filters ({handleFilters}) {
 
     const { MealType,
         handleChangeMealType,
@@ -18,7 +18,6 @@ export default function Filters () {
         handleChangeDiet,
         Health,
         handleChangeHealth,
-        handleFilters,
         countFilters
     } = useContext(FilterContext)
 
@@ -34,7 +33,7 @@ export default function Filters () {
                     sx={{width: '300px', margin: '8px',}}
                     onClick={handleFilters}
                     variant='outlined'
-                    color='primary'
+                    color='success'
                 > Apply {countFilters()} filters </Button>
             
         </div>
