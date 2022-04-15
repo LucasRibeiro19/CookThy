@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Header from './Header';
 
 function ContactPage() {
   return (
-    <div>ContactPage</div>
+    <div>
+      <Header/>
+      ContactPage
+    </div>
   )
 }
 

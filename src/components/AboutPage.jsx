@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Header from './Header';
 
 function AboutPage() {
   return (
-    <div>AboutPage</div>
+    <div>
+      <Header/>
+      AboutPage
+    </div>
   )
 }
 
