@@ -1,30 +1,28 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SearchContext } from "../contexts/SearchContext";
-import DrawerContext from '../contexts/DrawerContext';
-import DrawerMenu from './DrawerMenu';
-import { Toolbar } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import Typography from '@mui/material/Typography';
 import { styled, alpha } from '@mui/material/styles';
-import logo from '../logo.png'
+import logo from '../logo.png';
+import './homeSearch.css'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
+    alignItems: 'center',
     border:'2px solid #01937C',
     borderRadius: '50px',
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    marginLeft: 0,
-    width: '60%',
+    //marginLeft: 0,
+    width: '30%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
+      //marginLeft: theme.spacing(1),
+      width: "50%",
+
     },
   }));
   
@@ -59,12 +57,9 @@ const Search = styled('div')(({ theme }) => ({
   
   
   
-  function SearchAppbar() {
-    const {handleInterTerm, handleTerm, term} = useContext(SearchContext);
-    const {handleDrawer} = useContext(DrawerContext);
-
+  function SearchHome() {
+    const {handleInterTerm, handleTerm} = useContext(SearchContext);
     const navigate = useNavigate();
-
     const pressEnter = (e) => {
       if(e.key === "Enter"){
           e.preventDefault();
@@ -73,48 +68,26 @@ const Search = styled('div')(({ theme }) => ({
       }
   }
 
-  const img = "https://img.myloview.fr/stickers/poster-with-lettering-quote-natural-food-logo-design-sign-banner-for-cooking-vector-illustration-diet-menu-organic-raw-avocado-700-186064290.jpg";
-
     return ( 
-          <>
-            <Toolbar 
-                style={{display : 'flex', justifyContent :'space-between', alignItems:'center'}}>
-                <Typography
-                    variant="h2"
-                    fontFamily="Poppins"
-                    color='primary'
-                    noWrap
-                    component="div"
-                    sx={{  display: { xs: 'none', sm: 'block', cursor:'pointer' } }}
-                    onClick={()=> navigate('/')}
-                >  
-                <img src={logo} alt="Logo" width='100' height='39'/>
-                </Typography>
+          <div style={{height:"50%"}}>
+                <div className='homeSearch' >
+                    <div className = 'logo'>
+                        <img src={logo} alt="Logo" width="90%"/>
+                    </div>
                 <Search>
                     <SearchIconWrapper>
                         <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder={term == undefined ? "Search something" : term}
+                            placeholder="Search something"
                             inputProps={{ 'aria-label': 'search' }}
                             onChange={handleInterTerm}
                             onKeyUp={pressEnter}
                         />
                 </Search>
-                <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    onClick={handleDrawer}
-                    >
-                    
-                    <MenuIcon/>
-                </IconButton>
-            </Toolbar>
-            <DrawerMenu/>
-          </>
+                </div>
+          </div>
      );
 }
 
-export default SearchAppbar;
+export default SearchHome;

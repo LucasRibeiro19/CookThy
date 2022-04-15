@@ -18,12 +18,12 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: "url(../public/background.jpg)", margin:"0"}}>
         <ModalContextProvider>
           <RecipeContextProvider>
             <SearchContextProvider>
                 <FilterContextProvider>
-                    <Header/>
+                    {/*<Header/>*/}
                       <Routes>
                         <Route path="/" element={<Homepage />}></Route>
                         <Route path="/Search" element={<Searchpage />}></Route>

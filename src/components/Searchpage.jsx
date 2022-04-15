@@ -9,6 +9,7 @@ import { FilterContext } from '../contexts/FilterContext.jsx';
 import Button from '@mui/material/Button';
 import ButtonNext from './ButtonNext';
 import { Typography } from '@mui/material';
+import Header from './Header';
 
 
 function Searchpage( ) {
@@ -103,6 +104,7 @@ function Searchpage( ) {
 
     return ( 
         <div style={{padding: '0 1em 0 1em'}}>
+            <Header/>
             <Typography
                     variant="h2"
                     fontFamily="Poppins"
