@@ -83,6 +83,7 @@ const Search = styled('div')(({ theme }) => ({
                             inputProps={{ 'aria-label': 'search' }}
                             onChange={handleInterTerm}
                             onKeyUp={pressEnter}
+                            sx={{width: '100%'}}
                         />
                 </Search>
                 </div>

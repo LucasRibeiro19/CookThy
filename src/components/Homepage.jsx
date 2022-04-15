@@ -1,5 +1,3 @@
-import HomeButton from './HomeButton';
-import HomeMain from './HomeMain';
 import '../homepage.css';
 import { Typography } from '@mui/material';
 import SearchHome from './SearchHome';
@@ -29,9 +27,6 @@ function Homepage() {
                <div>
                 <SearchHome/>
                </div>
-
-            {/*<HomeButton />*/}
-            {/* <Filters /> */}
         </div>
      );
 }
