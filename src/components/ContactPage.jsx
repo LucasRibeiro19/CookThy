@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './Header';
+import Form from './Form';
 import { Typography } from '@mui/material';
+
 
 function ContactPage() {
 
@@ -8,15 +10,16 @@ function ContactPage() {
   return (
     <div>
       <Header/>
-      <div style={{margin:'1em'}}>
-        <Typography
-          variant="h2"
-          fontFamily="Poppins"
-          color='#01937C'
-          fontWeight='bold'
-        >
-          Contact us !
-        </Typography>
+      <Typography
+        variant="h2"
+        fontFamily="Poppins"
+        color='#01937C'
+        component="div"
+        sx={{  display: {fontWeight:'bold'}, padding:"5%" }} 
+      > Contact us
+      </Typography>
+      <div style={{display: 'flex', justifyContent:'center'}}>
+        <Form/>
       </div>
     </div>
   )

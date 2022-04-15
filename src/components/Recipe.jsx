@@ -16,7 +16,6 @@ export default function Recipe( {recipe} ) {
     const {label} = recipe.recipe;
 
     const handleDetails = () => {
-        console.log(label);
         navigate(`/Recipe/${label}`)
     }
 

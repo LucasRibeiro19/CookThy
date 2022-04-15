@@ -24,8 +24,6 @@ function RecipeDetails() {
     }else{
       targetRecipe = hits.find(r => r.recipe.label === params.recipeID).recipe;
     }
-
-    console.log(targetRecipe);
   
 
     const handleInstructions = () => {

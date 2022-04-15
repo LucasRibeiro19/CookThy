@@ -20,8 +20,6 @@ export const RecipeContextProvider = ({children}) => {
 
     const [like, setLike] = useState([]);
     const [recipeLike, setRecipeLike] = useState([]);
-    console.log(recipeLike);
-    console.log(like);
 
     const isLiked = (label) => {
         return like.some(el => el === label);
