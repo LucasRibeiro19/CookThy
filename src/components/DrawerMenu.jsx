@@ -84,6 +84,7 @@ function DrawerMenu() {
                   {menuItems.map(item => (
                             <ListItem 
                               // button
+                              sx={{cursor: 'pointer'}}
                               key={item.text} 
                               onClick={() => navigate(item.path)} 
                               className={location.pathname === item.path ? classes.active : null}
