@@ -19,18 +19,21 @@ function LikedRecipe({recipeLike}) {
     const style = {
       // width: 'calc(100% - 24px)',
       display:'flex',
+      justifyContent: "space-around",
+      alignItems : "center",
       padding: '1em',
-      border: '1px solid black',
+      border: '1px solid #FF5A19',
       borderRadius: '4px',
+      
     };
 
   return (
     <>
     <div style={style}>
       <img style={{width:'10%'}} src={recipeLike.image} alt={recipeLike.label} />
-      <p>{recipeLike.label}</p>
+      <p style={{fontWeight: "medium"}}>{recipeLike.label}</p>
       <Button
-          sx={{width:'50%'}}
+          sx={{width:'10%', height:'30%'}}
           onClick={handleDetails}
           variant='contained'
           color='success'
