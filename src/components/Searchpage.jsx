@@ -17,31 +17,11 @@ function Searchpage( ) {
     const {term} = useContext(SearchContext);
     const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
-        Diet,
-        Health,
-        DishType,
-        CuisineType,
-        MealType
+        filters, countFilters
     } = useContext(FilterContext);
 
-    const [filters, setFilters] = useState({
-        diet : [],
-        health : [],
-        dishType : [],
-        cuisineType : [],
-        mealType : []
-    })
 
-    const handleFilters = (event) =>{
-        setFilters({
-            diet : Diet,
-            health : Health,
-            dishType : DishType,
-            cuisineType : CuisineType,
-            mealType : MealType
-        })
-    }
-    
+
     useEffect(()=>{
         const getApi = async () => {
             try{
@@ -101,9 +81,10 @@ function Searchpage( ) {
     }, [filters])
 
     // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
+    console.log(countFilters())
 
     return ( 
-        <div style={{padding: '0 1em 0 1em', backgroundImage: "none"}}>
+        <div style={{padding: '0 1em 0 1em'}}>
             <Header/>
             <Typography
                     variant="h2"
@@ -113,7 +94,7 @@ function Searchpage( ) {
                     sx={{  display: {fontWeight:'bold'}, padding:"5%" }} 
                 >{term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :`}
             </Typography>
-            {recipes.count === 0 ? null : <Filters handleFilters={handleFilters}/>}
+            {recipes.count === 0 ? null : <Filters />}
             <Display />
             {recipes.to < 20 ? null :<ButtonNext recipes={recipes} handleNextPage={handleNextPage}/>}
         </div>

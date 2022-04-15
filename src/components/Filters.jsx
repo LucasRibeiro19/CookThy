@@ -7,7 +7,7 @@ import { mealType, dishType, diet, health, cuisineType } from "../FilterSelector
 import "./filter.css"
 
 
-export default function Filters ({handleFilters}) {
+export default function Filters () {
 
     const { MealType,
         handleChangeMealType,
@@ -19,7 +19,9 @@ export default function Filters ({handleFilters}) {
         handleChangeDiet,
         Health,
         handleChangeHealth,
-        countFilters
+        countFilters,
+        filters,
+        handleFilters,
     } = useContext(FilterContext)
 
 
