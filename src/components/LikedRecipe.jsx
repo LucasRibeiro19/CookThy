@@ -37,7 +37,7 @@ function LikedRecipe({recipeLike}) {
     <div style={{display: "flex", justifyContent:"center"}}>
     <div style={style}>
       <img style={{width:"10%"}} src={recipeLike.image} alt={recipeLike.label} />
-      <p style={{fontWeight: "medium"}}>{recipeLike.label}</p>
+      <p style={{fontWeight: "medium", fontFamily: "Poppins", fontWeight:'bold'}}>{recipeLike.label}</p>
       <div style={{display: "flex", justifyContent:"space-between", alignItems:"center"}}>
       <Button
           sx={{width:"90%", height:'50%', marginRight:"1em"}}
