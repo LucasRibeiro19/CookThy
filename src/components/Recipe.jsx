@@ -64,7 +64,7 @@ export default function Recipe( {recipe} ) {
                     sx={{width:'50%'}}
                     onClick={handleDetails}
                     variant='contained'
-                    color='primary'
+                    color='success'
                  >
                     <Typography
                         variant='body2'
