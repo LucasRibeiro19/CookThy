@@ -23,6 +23,7 @@ code {
     {
         background-image: url('/public/bck3.jpg');
         background-repeat: no-repeat;
+        background-size:cover;
 
     }
 }

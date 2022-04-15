@@ -14,7 +14,7 @@ function Homepage() {
 
     return ( 
         <div >
-            <div style={{marginTop:"5%"}}>
+            <div  style={{marginTop:"5%"}}>
             <Typography
                     variant="h1"
                     fontFamily="Poppins, cursive"

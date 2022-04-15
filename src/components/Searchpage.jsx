@@ -22,21 +22,21 @@ function Searchpage( ) {
 
 
 
-    useEffect(()=>{
-        const getApi = async () => {
-            try{
-                await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
-                .then(res=>{
-                    setRecipes(res.data)
-                    setDisplay([res.data])
-                })
-            } catch (err){
-                console.log(err);
-            }
-        }
-        getApi();   
+   // useEffect(()=>{
+   //     const getApi = async () => {
+   //         try{
+   //             await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
+   //             .then(res=>{
+   //                 setRecipes(res.data)
+   //                 setDisplay([res.data])
+   //             })
+   //         } catch (err){
+   //             console.log(err);
+   //         }
+   //     }
+   //     getApi();   
  
-    }, [term])
+    //}, [term])
 
     useEffect(()=>{
         const getNextPage = async (bool) => {
@@ -74,11 +74,11 @@ function Searchpage( ) {
                     setRecipes(res.data)
                     setDisplay([res.data])}
                     )
-            // console.log(url)
+            console.log(url)
         }
         getApiFilter(filters);
 
-    }, [filters])
+    }, [filters, term])
 
     // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
     console.log(countFilters())
