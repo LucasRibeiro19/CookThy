@@ -36,7 +36,7 @@ export default function Filters () {
             </div>
             <div className="buttonFilters">
             <Button
-                    sx={{width: '300px', height:'56px', margin: '8px'}}
+                    sx={{width: '300px', height:'56px', margin: '8px',backgroundColor: "rgba(255, 255, 255, 0.5)"}}
                     onClick={handleFilters}
                     variant='outlined'
                     color='success'

@@ -38,6 +38,7 @@ export default function MultipleSelectChip({selectorCategorie, choices, filter, 
       <FormControl sx={{ m: 1, width: 300 }}>
         <InputLabel id="demo-multiple-chip-label">{ selectorCategorie }</InputLabel>
         <Select
+          sx={{backgroundColor: "rgba(255, 255, 255, 0.5)"}}
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple

@@ -2,7 +2,6 @@ import '../homepage.css';
 import { Typography } from '@mui/material';
 import SearchHome from './SearchHome';
 import DrawerHome from './DrawerHome';
-import Header from './Header';
 
 
 

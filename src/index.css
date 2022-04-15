@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: 'Roboto', sans-serif; 
+  font-family: 'poppins', sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -16,7 +16,7 @@ body {
 }
 
 code {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'poppins', sans-serif;
 }
 
 @media screen and (min-width: 768px)
