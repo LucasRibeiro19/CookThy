@@ -3,10 +3,9 @@ import FavouriteButton from './LikeButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { RecipeContext } from '../contexts/RecipeContext';
 
-function LikedRecipe({likedRecipe}) {
+function LikedRecipe({recipeLike}) {
 
-    console.log(likedRecipe);
-    const {recipe} = likedRecipe;
+    console.log(recipeLike);
     const {handleLike} = useContext(RecipeContext);
 
     const style = {
@@ -20,9 +19,9 @@ function LikedRecipe({likedRecipe}) {
   return (
     <>
     <div style={style}>
-      <img style={{width:'10%'}} src={recipe.image} alt={recipe.label} />
-      <p>{recipe.label}</p>
-      <DeleteIcon onClick={()=> handleLike(recipe)}/>
+      <img style={{width:'10%'}} src={recipeLike.image} alt={recipeLike.label} />
+      <p>{recipeLike.label}</p>
+      <DeleteIcon onClick={()=> handleLike(recipeLike.label, recipeLike)}/>
     </div>
     </>
   )

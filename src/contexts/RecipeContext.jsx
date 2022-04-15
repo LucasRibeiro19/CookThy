@@ -58,7 +58,8 @@ export const RecipeContextProvider = ({children}) => {
                 setDisplay,
                 handleLike,
                 like,
-                isLiked
+                isLiked,
+                recipeLike,
             }}
         >
             {children}

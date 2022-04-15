@@ -11,7 +11,7 @@ function RecipeDetails() {
     
     const params = useParams();
 
-    const {recipes, like} = useContext(RecipeContext);
+    const {recipes} = useContext(RecipeContext);
 
 
     const {hits} = recipes;
