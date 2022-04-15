@@ -32,7 +32,8 @@ export default function Recipe( {recipe} ) {
             />
             <CardContent sx={{bgColor:"#FAF1E6"}}>
                 <Typography
-                    sx={{textAlign:'center'}}
+                    sx={{textAlign:'center', fontWeight: 'bold'}}
+                    fontFamily="Poppins"
                     gutterBottom 
                     variant="h5" 
                     component="div"
@@ -43,11 +44,14 @@ export default function Recipe( {recipe} ) {
                     sx={{display:'flex', justifyContent:'space-between'}}
                 >
                     <Typography variant="body2" color="text.secondary">
-                    {recipe.recipe.totalTime}'
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
                     {recipe.recipe.yield} Persons
                     </Typography>
+                    {recipe.recipe.totalTime != 0 ?
+                        <Typography variant="body2" color="text.secondary">
+                            {recipe.recipe.totalTime} minutes
+                        </Typography>
+                        : null
+                    }
                 </CardContent>
             </CardContent>
             {/* <CardActions
@@ -68,7 +72,7 @@ export default function Recipe( {recipe} ) {
                         Show Details
                     </Typography>
                  </Button>
-                 <LikeButton recipe={recipe}/>
+                 <LikeButton label={label} recipe={recipe.recipe}/>
             </div>
             </Card>
         </>

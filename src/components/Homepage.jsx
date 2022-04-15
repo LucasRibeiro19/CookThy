@@ -1,6 +1,7 @@
 import HomeButton from './HomeButton';
 import HomeMain from './HomeMain';
-import '../homepage.css'
+import '../homepage.css';
+import { Typography } from '@mui/material';
 
 
 
@@ -9,7 +10,16 @@ function Homepage() {
     return ( 
         <div className="mainHome">
             {/* <img src="" alt="" /> */}
-            <h1>Titre</h1>
+            <Typography
+                    variant="h1"
+                    fontFamily="Poppins"
+                    color='#01937C'
+                    component="div"
+                    sx={{  display: { xs: 'none', sm: 'block', fontWeight:'bold'} }}
+                    
+                >  
+                Cook'Thy
+                </Typography>
             <HomeButton />
             {/* <Filters /> */}
         </div>
