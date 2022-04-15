@@ -88,7 +88,7 @@ const Search = styled('div')(({ theme }) => ({
                     sx={{  display: { xs: 'none', sm: 'block', cursor:'pointer' } }}
                     onClick={()=> navigate('/')}
                 >  
-                <img src={logo} alt="Logo" width='100' height='39'/>
+                <img src={logo} alt="Logo" width="50%"/>
                 </Typography>
                 <Search>
                     <SearchIconWrapper>

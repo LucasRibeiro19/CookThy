@@ -103,14 +103,14 @@ function Searchpage( ) {
     // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
 
     return ( 
-        <div style={{padding: '0 1em 0 1em'}}>
+        <div style={{padding: '0 1em 0 1em', backgroundImage: "none"}}>
             <Header/>
             <Typography
                     variant="h2"
                     fontFamily="Poppins"
                     color='#01937C'
                     component="div"
-                    sx={{  display: {fontWeight:'bold'} }} 
+                    sx={{  display: {fontWeight:'bold'}, padding:"5%" }} 
                 >{term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :`}
             </Typography>
             {recipes.count === 0 ? null : <Filters handleFilters={handleFilters}/>}
