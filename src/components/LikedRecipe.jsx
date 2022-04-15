@@ -2,11 +2,17 @@ import React, { useContext } from 'react'
 import FavouriteButton from './LikeButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { RecipeContext } from '../contexts/RecipeContext';
+import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-function LikedRecipe({recipe}) {
+function LikedRecipe({recipeLike}) {
 
-    console.log(recipe);
+    const navigate = useNavigate();
     const {handleLike} = useContext(RecipeContext);
+
+    const handleDetails = () => {
+      navigate(`/Recipe/${recipeLike.label}`)
+  }
 
     const style = {
       // width: 'calc(100% - 24px)',
@@ -19,9 +25,16 @@ function LikedRecipe({recipe}) {
   return (
     <>
     <div style={style}>
-      <img style={{width:'10%'}} src={recipe.image} alt={recipe.label} />
-      <p>{recipe.label}</p>
-      <DeleteIcon onClick={()=> handleLike(recipe)}/>
+      <img style={{width:'10%'}} src={recipeLike.image} alt={recipeLike.label} />
+      <p>{recipeLike.label}</p>
+      <Button
+          sx={{width:'50%'}}
+          onClick={handleDetails}
+          variant='contained'
+          color='success'
+        >Show Details
+      </Button>
+      <DeleteIcon onClick={()=> handleLike(recipeLike.label, recipeLike)}/>
     </div>
     </>
   )
