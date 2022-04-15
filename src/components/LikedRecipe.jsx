@@ -3,10 +3,9 @@ import FavouriteButton from './LikeButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { RecipeContext } from '../contexts/RecipeContext';
 
-function LikedRecipe({likedRecipe}) {
+function LikedRecipe({recipe}) {
 
-    console.log(likedRecipe);
-    const {recipe} = likedRecipe;
+    console.log(recipe);
     const {handleLike} = useContext(RecipeContext);
 
     const style = {

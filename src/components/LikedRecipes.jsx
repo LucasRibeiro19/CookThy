@@ -7,7 +7,7 @@ import {RecipeContext} from '../contexts/RecipeContext';
 
 function LikedRecipes() {
   
-  const {like} = useContext(RecipeContext);
+  const {recipeLike} = useContext(RecipeContext);
 
   // console.log(like);
   
@@ -15,8 +15,8 @@ function LikedRecipes() {
   return (
     <>
       <div style={{padding:'0 24px 50px 24px', width:'calc(100% - 48px)'}}>
-        <h1>{like.length} recipes liked </h1>
-        {like.map(likedRecipe => <LikedRecipe likedRecipe={likedRecipe}/>)}
+        <h1>{recipeLike.length} recipes liked </h1>
+        {recipeLike.map(likedRecipe => <LikedRecipe recipe={likedRecipe}/>)}
       </div>
     </>
   )
