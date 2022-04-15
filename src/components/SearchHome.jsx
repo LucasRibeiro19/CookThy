@@ -79,7 +79,7 @@ const Search = styled('div')(({ theme }) => ({
                         <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search something"
+                            placeholder="Search something to cook..."
                             inputProps={{ 'aria-label': 'search' }}
                             onChange={handleInterTerm}
                             onKeyUp={pressEnter}
