@@ -11,12 +11,21 @@ function RecipeDetails() {
     
     const params = useParams();
 
-    const {recipes} = useContext(RecipeContext);
+    const {recipes, recipeLike, isLiked} = useContext(RecipeContext);
 
 
     const {hits} = recipes;
 
-    const targetRecipe = hits.find(r => r.recipe.label === params.recipeID);
+    let targetRecipe = [];
+
+    if (isLiked(params.recipeID)) {
+      targetRecipe = recipeLike[0]
+    }else{
+      targetRecipe = hits.find(r => r.recipe.label === params.recipeID).recipe;
+    }
+
+    console.log(targetRecipe);
+  
 
     const handleInstructions = () => {
       window.open(targetRecipe.recipe.url)
@@ -27,9 +36,9 @@ function RecipeDetails() {
       <BackButton/>
       <div style={{padding:'0 24px 50px 24px'}}>
           <h1>{params.recipeID}</h1>
-          <img src={targetRecipe.recipe.image} alt={targetRecipe.recipe.label} />
+          <img src={targetRecipe.image} alt={targetRecipe.label} />
           <ul>
-            {targetRecipe.recipe.ingredientLines.map(ingr => <li key={ingr}>{ingr}</li>)}
+            {targetRecipe.ingredientLines.map(ingr => <li key={ingr}>{ingr}</li>)}
           </ul>
           <Button
             variant='contained'
@@ -38,11 +47,11 @@ function RecipeDetails() {
           >
             Instructions
           </Button>
-          <p>{Math.floor(targetRecipe.recipe.calories)} Calories</p>
-          <p>{targetRecipe.recipe.yield} Persons</p>
-          <p>Preparation time : {targetRecipe.recipe.totalTime === 0 ? "Unknown" : `${targetRecipe.recipe.totalTime} minutes`}</p>
-          <p>Health Labels : {targetRecipe.recipe.healthLabels.map(healthlabel => [`#${healthlabel} `])}</p>
-          <LikeButton label={params.recipeID} recipe={targetRecipe.recipe}/>
+          <p>{Math.floor(targetRecipe.calories)} Calories</p>
+          <p>{targetRecipe.yield} Persons</p>
+          <p>Preparation time : {targetRecipe.totalTime === 0 ? "Unknown" : `${targetRecipe.totalTime} minutes`}</p>
+          <p>Health Labels : {targetRecipe.healthLabels.map(healthlabel => [`#${healthlabel} `])}</p>
+          <LikeButton label={params.recipeID} recipe={targetRecipe}/>
       </div>
     </>
   )
