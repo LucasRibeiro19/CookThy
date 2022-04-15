@@ -1,6 +1,8 @@
 import '../homepage.css';
 import { Typography } from '@mui/material';
 import SearchHome from './SearchHome';
+import DrawerHome from './DrawerHome';
+import Header from './Header';
 
 
 
@@ -12,6 +14,7 @@ function Homepage() {
 
     return ( 
         <div >
+            <DrawerHome/>
             <div  style={{marginTop:"5%"}}>
             <Typography
                     variant="h1"

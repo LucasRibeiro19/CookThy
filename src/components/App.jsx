@@ -10,8 +10,8 @@ import ContactPage from './ContactPage';
 import AboutPage from './AboutPage';
 import { SearchContextProvider } from '../contexts/SearchContext';
 import { RecipeContextProvider } from '../contexts/RecipeContext';
-import {ModalContextProvider} from '../contexts/ModalContext';
 import { FilterContextProvider} from '../contexts/FilterContext';
+import { DrawerContextProvider } from '../contexts/DrawerContext';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundImage: "url(../public/background.jpg)", margin:"0"}}>
-        <ModalContextProvider>
+        <DrawerContextProvider>
           <RecipeContextProvider>
             <SearchContextProvider>
                 <FilterContextProvider>
@@ -36,7 +36,7 @@ function App() {
                 </FilterContextProvider>  
             </SearchContextProvider>
           </RecipeContextProvider>
-        </ModalContextProvider>
+        </DrawerContextProvider>
     </div>
   );
 }
