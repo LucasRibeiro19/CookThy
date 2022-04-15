@@ -17,7 +17,7 @@ function LikedRecipes() {
     <>
       <Header/>
       <div style={{padding:'0 24px 50px 24px', width:'calc(100% - 48px)'}}>
-        <h1>{recipeLike.length} recipes liked </h1>
+        <h1 style={{fontFamily:"Poppins",  color:'#01937C', fontWeight:'bold'}}>{recipeLike.length} recipes liked </h1>
         {recipeLike.map((likedRecipe, index) => <LikedRecipe recipeLike={likedRecipe} key={index}/>)}
       </div>
     </>
