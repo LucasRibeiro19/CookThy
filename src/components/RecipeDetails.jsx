@@ -1,5 +1,6 @@
 import React from 'react';
 import BackButton from './BackButton';
+import Header from './Header';
 import LikeButton from './LikeButton';
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
@@ -28,12 +29,13 @@ function RecipeDetails() {
   
 
     const handleInstructions = () => {
-      window.open(targetRecipe.recipe.url)
+      window.open(targetRecipe.url)
     }
 
   return (
     <>
-      <BackButton/>
+      <Header/>
+      <BackButton label={targetRecipe.label} recipe={targetRecipe}/>
       <div style={{padding:'0 24px 50px 24px'}}>
           <h1>{params.recipeID}</h1>
           <img src={targetRecipe.image} alt={targetRecipe.label} />

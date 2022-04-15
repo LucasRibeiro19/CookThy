@@ -1,0 +1,28 @@
+
+
+.homeSearch{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5%;
+    align-items : center;
+}
+
+.logo{
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 768px)
+{
+    .logo
+    {
+        width: 50%
+
+    }
+
+}
+
+

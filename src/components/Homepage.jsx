@@ -1,27 +1,32 @@
-import HomeButton from './HomeButton';
-import HomeMain from './HomeMain';
 import '../homepage.css';
 import { Typography } from '@mui/material';
+import SearchHome from './SearchHome';
+
 
 
 
 
 function Homepage() {
+
+
+
     return ( 
-        <div className="mainHome">
-            {/* <img src="" alt="" /> */}
+        <div >
+            <div  style={{marginTop:"5%"}}>
             <Typography
                     variant="h1"
-                    fontFamily="Poppins"
+                    fontFamily="Poppins, cursive"
                     color='#01937C'
                     component="div"
-                    sx={{  display: { xs: 'none', sm: 'block', fontWeight:'bold'} }}
+                    sx={{  display: { xs: 'none', sm: 'block' }, textAlign: 'center', fontWeight: 'bold'}}
                     
                 >  
                 Cook'Thy
-                </Typography>
-            <HomeButton />
-            {/* <Filters /> */}
+            </Typography>
+            </div>
+               <div>
+                <SearchHome/>
+               </div>
         </div>
      );
 }

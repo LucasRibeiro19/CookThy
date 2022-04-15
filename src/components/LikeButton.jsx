@@ -12,7 +12,7 @@ function FavouriteButton({label, recipe}) {
   return (
     <>
 
-        {isLiked(label) ? 
+        {isLiked(label, recipe) ? 
           <FontAwesomeIcon onClick={()=> handleLike(label, recipe)} icon={faHeartCircleMinus} size="2x" style={{color:'#FFC074', cursor:'pointer'}} />
           : <FontAwesomeIcon onClick={()=> handleLike(label, recipe)} icon={faHeartCirclePlus} size="2x" style={{color:'#01937C', cursor:'pointer'}} />
         }

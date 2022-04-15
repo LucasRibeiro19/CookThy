@@ -1,13 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: 'Poppins', sans-serif; 
+  font-family: 'Roboto', sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-size:cover;
+  background-color: #FEFAEE;
+
+
 }
 
 code {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (min-width: 768px)
+{
+    body
+    {
+        background-image: url('/public/bck3.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
+
+    }
 }

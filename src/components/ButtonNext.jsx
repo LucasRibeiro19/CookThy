@@ -7,8 +7,8 @@ export default function ButtonNext( {recipes, handleNextPage} ) {
     return (
         <div style={{textAlign:'center',paddingBottom:'50px'}} > 
         {(recipes.to !== 0 && recipes.to < recipes.count) && <Button        
-                    variant="contained" 
-                    color='success'
+                    variant='outlined' 
+                    color='primary'
                     onClick={handleNextPage}
                     >See {recipes.to-recipes.from+1} next recipes</Button>}
         </div>

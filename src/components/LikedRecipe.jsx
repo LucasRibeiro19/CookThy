@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 function LikedRecipe({recipeLike}) {
 
     const navigate = useNavigate();
+
+    console.log(recipeLike);
     const {handleLike} = useContext(RecipeContext);
 
     const handleDetails = () => {
