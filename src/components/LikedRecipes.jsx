@@ -23,7 +23,7 @@ function LikedRecipes() {
         color='#01937C'
         component="div"
         sx={{  display: {fontWeight:'bold'}, padding:"5%" }} 
-      > {recipeLike.length} recipes liked
+      > {recipeLike.length} recipes saved
       </Typography>
         {recipeLike.map((likedRecipe, index) => <LikedRecipe recipeLike={likedRecipe} key={index}/>)}
       </div>
