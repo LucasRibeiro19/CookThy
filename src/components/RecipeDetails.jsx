@@ -22,7 +22,6 @@ function RecipeDetails() {
       window.open(targetRecipe.recipe.url)
     }
 
-
   return (
     <>
       <BackButton/>
@@ -43,7 +42,7 @@ function RecipeDetails() {
           <p>{targetRecipe.recipe.yield} Persons</p>
           <p>Preparation time : {targetRecipe.recipe.totalTime === 0 ? "Unknown" : `${targetRecipe.recipe.totalTime} minutes`}</p>
           <p>Health Labels : {targetRecipe.recipe.healthLabels.map(healthlabel => [`#${healthlabel} `])}</p>
-          <LikeButton label={params.recipeID} recipe={targetRecipe}/>
+          <LikeButton label={params.recipeID} recipe={targetRecipe.recipe}/>
       </div>
     </>
   )

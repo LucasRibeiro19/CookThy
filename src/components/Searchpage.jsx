@@ -81,7 +81,7 @@ function Searchpage( ) {
     }, [filters, term])
 
     // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
-    console.log(countFilters())
+    // console.log(countFilters())
 
     return ( 
         <div style={{padding: '0 1em 0 1em'}}>

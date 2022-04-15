@@ -20,8 +20,8 @@ export const RecipeContextProvider = ({children}) => {
 
     const [like, setLike] = useState([]);
     const [recipeLike, setRecipeLike] = useState([]);
-    // console.log(recipeLike);
-    // console.log(like);
+    console.log(recipeLike);
+    console.log(like);
 
     const isLiked = (label) => {
         return like.some(el => el === label);
@@ -33,25 +33,17 @@ export const RecipeContextProvider = ({children}) => {
     };
 
     const disLike = (label, recipe) => {
-        setLike((prevstate) => {
-            return prevstate.filter(el => el !== label)
-        })
-        setRecipeLike((prevstate) => {
-            return prevstate.filter(el => el !== recipe)
-        })
+        setLike((prevstate) => prevstate.filter(el => el !== label))
+        setRecipeLike((prevstate) => prevstate.filter(el => el.label !== recipe.label))
     };
 
     const handleLike = (label, recipe) => {
-        if(isLiked(label)){
+        if(isLiked(label,recipe)){
             disLike(label, recipe);
         }else{
             addLike(label, recipe);
         }
     };
-
-    // console.log(like);
-
-
 
 
     return (
