@@ -1,6 +1,7 @@
 {
   "name": "projet2",
   "version": "0.1.0",
+  "homepage": "https://LucasRibeiro19.github.io/PROJET2-WCS-G3",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.8.1",
