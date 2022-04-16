@@ -21,23 +21,6 @@ function Searchpage( ) {
     } = useContext(FilterContext);
 
 
-
-   // useEffect(()=>{
-   //     const getApi = async () => {
-   //         try{
-   //             await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=82995fc0&app_key=ee3fd4c5fe78ab26de55a1aaa3f0c94c`)
-   //             .then(res=>{
-   //                 setRecipes(res.data)
-   //                 setDisplay([res.data])
-   //             })
-   //         } catch (err){
-   //             console.log(err);
-   //         }
-   //     }
-   //     getApi();   
- 
-    //}, [term])
-
     useEffect(()=>{
         const getNextPage = async (bool) => {
           bool &&  await axios.get(recipes._links.next.href) 
@@ -49,8 +32,10 @@ function Searchpage( ) {
 
     useEffect(()=>{
         const getApiFilter = async (filters) => {
-            const app_id = "82995fc0";
-            const app_key = "ee3fd4c5fe78ab26de55a1aaa3f0c94c";
+            // const app_id = "82995fc0";
+            // const app_key = "ee3fd4c5fe78ab26de55a1aaa3f0c94c";
+            const app_id = "b86bd0b8";
+            const app_key = "45f330ead60f63216de55e4c2a767b4b";
             let url = `https://api.edamam.com/api/recipes/v2?type=public&q=${term}`;
             if (filters.diet.length !==0){
                 url += `&diet=${filters.diet.join('&diet=').toLowerCase()}`

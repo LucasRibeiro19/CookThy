@@ -73,7 +73,6 @@ const Search = styled('div')(({ theme }) => ({
       }
   }
 
-  const img = "https://img.myloview.fr/stickers/poster-with-lettering-quote-natural-food-logo-design-sign-banner-for-cooking-vector-illustration-diet-menu-organic-raw-avocado-700-186064290.jpg";
 
     return ( 
           <>
