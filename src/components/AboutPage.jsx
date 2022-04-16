@@ -17,14 +17,13 @@ function AboutPage() {
       </Typography>
       <div className="container">
       <p>
-      Aujourd'hui, notre façon de nous alimenter est devenue un choix autant personnel que citoyen. 
-      L'agriculture a un impact considérable sur les émissions de gaz à effets de serres et il nous appartient de choisir notre alimentation de manière à minimiser cet impact.
-      D'un autre côté, une alimentation saine est un gage de bonne santé jusqu'à un âge avancé.    </p><br />
+      Our consumption habits have become a personal choice such as responsible over years. Agriculture has significant impact on the environment
+      and we have to change our eating habits consequently. Moreover, a healthy diet ensures well-being and prosperity.</p><br />
       <p>
-      Nous avons conçus Cook'Thy pour vous permettre de trouver rapidement des recettes originales correspondant à vos critères éthiques ainsi qu'à vos envies gastronomiques! 
+      We made Cook'Thy in order to provide you quickly original recipes corresponding to your ethical criteria and gastronomy tastes. 
       </p><br />
       <p>
-      Réalisé par 
+      Realised by 
       </p>
       <p>
       Claire Roman<br />

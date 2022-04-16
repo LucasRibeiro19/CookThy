@@ -16,11 +16,11 @@ function Homepage() {
             <DrawerHome/>
             <div  style={{marginTop:"5%"}}>
             <Typography
-                    variant="h1"
+                    variant="h2"
                     fontFamily="Poppins, cursive"
                     color='#01937C'
                     component="div"
-                    sx={{  display: { xs: 'none', sm: 'block' }, textAlign: 'center', fontWeight: 'bold'}}
+                    sx={{  display: {sm: 'block' }, textAlign: 'center', fontWeight: 'bold'}}
                     
                 >  
                 Cook'Thy

@@ -5,9 +5,10 @@ function Footer() {
             style={{backgroundColor: '#01937C', color:'#fff', position:'fixed', bottom:'0', width:'100%', textAlign: 'center'}}
         >
             <Typography
+                variant="subtitle"
                 fontFamily= 'Poppins'
                 fontWeight='Bold'
-            >Conceived by: Claire Roman, Nicolas Journet and Lucas Ribeiro
+            >©Cook'Thy2022
 
             </Typography>
         </footer>
