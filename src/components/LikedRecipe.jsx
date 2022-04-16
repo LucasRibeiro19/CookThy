@@ -46,7 +46,7 @@ function LikedRecipe({recipeLike}) {
           color='success'
         >Show Details
       </Button>
-      <DeleteIcon onClick={()=> handleLike(recipeLike.label, recipeLike)}/>
+      <DeleteIcon sx={{cursor: 'pointer'}} onClick={()=> handleLike(recipeLike.label, recipeLike)}/>
       </div>
     </div>
     </div>

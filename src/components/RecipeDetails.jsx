@@ -31,18 +31,15 @@ function RecipeDetails() {
     }
 
     const style = {
-      // width: 'calc(100% - 24px)',
       display:'flex',
       justifyContent: "space-between",
       flexDirection: "column",
       alignItems : "center",
       padding: '1em',
-      // border: '1px solid #2E7D32',
       borderRadius: '4px',
       backgroundColor : "white",
+      maxWidth: '600px',
       margin: '25px',
-      width: "40%",
-      //flexWrap:"wrap",
       boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
       fontFamily: "Poppins",
       fontWeight: 'bold'
