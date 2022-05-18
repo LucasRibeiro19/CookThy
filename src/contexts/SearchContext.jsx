@@ -19,7 +19,6 @@ const handleTerm = (event) => {
 }
 
 // console.log(term);
-// console.log(interTerm);
 
 return(
     <SearchContext.Provider value= {{term, handleTerm, interTerm, handleInterTerm}}>

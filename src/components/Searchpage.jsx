@@ -6,7 +6,6 @@ import { SearchContext } from '../contexts/SearchContext';
 import { RecipeContext } from '../contexts/RecipeContext';
 import Filters from './Filters.jsx';
 import { FilterContext } from '../contexts/FilterContext.jsx';
-import Button from '@mui/material/Button';
 import ButtonNext from './ButtonNext';
 import { Typography } from '@mui/material';
 import Header from './Header';
@@ -32,8 +31,6 @@ function Searchpage( ) {
 
     useEffect(()=>{
         const getApiFilter = async (filters) => {
-            // const app_id = "82995fc0";
-            // const app_key = "ee3fd4c5fe78ab26de55a1aaa3f0c94c";
             const app_id = "b86bd0b8";
             const app_key = "45f330ead60f63216de55e4c2a767b4b";
             let url = `https://api.edamam.com/api/recipes/v2?type=public&q=${term}`;
@@ -59,14 +56,11 @@ function Searchpage( ) {
                     setRecipes(res.data)
                     setDisplay([res.data])}
                     )
-            // console.log(url)
         }
         getApiFilter(filters);
 
     }, [filters, term])
 
-    // console.log(recipes.to !== 0 && recipes.from <= recipes.count)
-    // console.log(countFilters())
 
     return ( 
         <div style={{padding: '0 1em 0 1em'}}>
