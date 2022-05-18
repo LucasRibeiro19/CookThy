@@ -11,7 +11,10 @@ body {
 
   background-size:cover;
   background-color: #FEFAEE;
-
+  background-image: url('/public/bck3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  
 
 }
 
@@ -19,13 +22,19 @@ code {
   font-family: 'poppins', sans-serif;
 }
 
-@media screen and (min-width: 768px)
+@media screen and (max-width: 900px)
 {
     body
     {
-        background-image: url('/public/bck3.jpg');
-        background-repeat: no-repeat;
-        background-size:cover;
+        /* background-size:cover; */
+
+    }
+}
+@media screen and (max-width: 760px)
+{
+    body
+    {
+        /* background-size:cover; */
 
     }
 }

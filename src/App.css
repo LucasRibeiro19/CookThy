@@ -1,10 +1,5 @@
-.filters{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-.Filters{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
+/* .App{
+    margin: 0;
+    background-image: url('/public/bck3.jpg');
+    background-size: cover;
+} */

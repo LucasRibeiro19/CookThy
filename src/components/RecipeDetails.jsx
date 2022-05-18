@@ -52,7 +52,9 @@ function RecipeDetails() {
       <BackButton label={targetRecipe.label} recipe={targetRecipe}/>
       <div style={{padding:'0 24px 50px 24px', display:"flex", justifyContent:"center", flexDirection:"column", alignItems:"center"}}>
           <h2 style={{fontFamily:"Poppins"}}>{params.recipeID}</h2>
-          <img style={{borderRadius: '4px'}} width="25%" src={targetRecipe.image} alt={targetRecipe.label} />
+          <div style={{margin:'0 25px 0 25px', maxWidth:'450px'}}>
+            <img style={{borderRadius: '4px', width:'100%'}}  src={targetRecipe.image} alt={targetRecipe.label} />
+          </div>
           <div style={style}>
           <ul>
             {targetRecipe.ingredientLines.map(ingr => <li key={ingr}>{ingr}</li>)}
