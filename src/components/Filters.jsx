@@ -20,7 +20,6 @@ export default function Filters () {
         Health,
         handleChangeHealth,
         countFilters,
-        filters,
         handleFilters,
     } = useContext(FilterContext)
 
