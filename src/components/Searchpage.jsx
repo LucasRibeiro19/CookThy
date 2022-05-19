@@ -9,10 +9,14 @@ import { FilterContext } from '../contexts/FilterContext.jsx';
 import ButtonNext from './ButtonNext';
 import { Typography } from '@mui/material';
 import Header from './Header';
+import CircularProgress from '@mui/material/CircularProgress';
+import LoadingContext from '../contexts/LoadingContext';
+import RequestLoader from './RequestLoader';
 
 
 function Searchpage( ) {
 
+    const {loading, setLoading} = useContext(LoadingContext);
     const {term} = useContext(SearchContext);
     const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
@@ -54,10 +58,12 @@ function Searchpage( ) {
             await axios.get(url)
                 .then(res=>{
                     setRecipes(res.data)
-                    setDisplay([res.data])}
-                    )
+                    setDisplay([res.data])
+                    setLoading(true)
+                })
         }
         getApiFilter(filters);
+        
 
     }, [filters, term])
 
@@ -71,7 +77,7 @@ function Searchpage( ) {
                     color='#01937C'
                     component="div"
                     sx={{  display: {fontWeight:'bold'}, padding:"5%" }} 
-                >{term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :`}
+                >{loading ? term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :` : <RequestLoader/>}
             </Typography>
             {recipes.count === 0 ? null : <Filters />}
             <Display />

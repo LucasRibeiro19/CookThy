@@ -22,19 +22,4 @@ code {
   font-family: 'poppins', sans-serif;
 }
 
-@media screen and (max-width: 900px)
-{
-    body
-    {
-        /* background-size:cover; */
 
-    }
-}
-@media screen and (max-width: 760px)
-{
-    body
-    {
-        /* background-size:cover; */
-
-    }
-}
