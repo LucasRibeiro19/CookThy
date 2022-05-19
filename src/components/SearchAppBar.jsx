@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SearchContext } from "../contexts/SearchContext";
+import LoadingContext from '../contexts/LoadingContext';
 import DrawerContext from '../contexts/DrawerContext';
 import DrawerMenu from './DrawerMenu';
 import { Toolbar } from '@mui/material';
@@ -62,6 +63,7 @@ const Search = styled('div')(({ theme }) => ({
   function SearchAppbar() {
     const {handleInterTerm, handleTerm, term} = useContext(SearchContext);
     const {handleDrawer} = useContext(DrawerContext);
+    const {setLoading} =  useContext(LoadingContext)
 
     const navigate = useNavigate();
 
@@ -70,6 +72,7 @@ const Search = styled('div')(({ theme }) => ({
           e.preventDefault();
           handleTerm();
           navigate('/search')
+          setLoading(false);
       }
   }
 

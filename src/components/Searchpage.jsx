@@ -10,11 +10,12 @@ import ButtonNext from './ButtonNext';
 import { Typography } from '@mui/material';
 import Header from './Header';
 import CircularProgress from '@mui/material/CircularProgress';
+import LoadingContext from '../contexts/LoadingContext';
 
 
 function Searchpage( ) {
 
-    const [loading, setLoading] = useState(false)
+    const {loading, setLoading} = useContext(LoadingContext);
     const {term} = useContext(SearchContext);
     const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
@@ -61,6 +62,7 @@ function Searchpage( ) {
                 })
         }
         getApiFilter(filters);
+        
 
     }, [filters, term])
 
