@@ -11,6 +11,7 @@ import { Typography } from '@mui/material';
 import Header from './Header';
 import CircularProgress from '@mui/material/CircularProgress';
 import LoadingContext from '../contexts/LoadingContext';
+import RequestLoader from './RequestLoader';
 
 
 function Searchpage( ) {
@@ -76,7 +77,7 @@ function Searchpage( ) {
                     color='#01937C'
                     component="div"
                     sx={{  display: {fontWeight:'bold'}, padding:"5%" }} 
-                >{loading ? term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :` : <CircularProgress color="success" />}
+                >{loading ? term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :` : <RequestLoader/>}
             </Typography>
             {recipes.count === 0 ? null : <Filters />}
             <Display />
