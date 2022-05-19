@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import '../likedrecipe.css';
+import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { RecipeContext } from '../contexts/RecipeContext';
 import { Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import '../likedrecipe.css';
 
 function LikedRecipe({recipeLike}) {
 
@@ -21,7 +21,7 @@ function LikedRecipe({recipeLike}) {
     <div style={{display: "flex", justifyContent:"center"}}>
     <div className='liked-recipe'>
       <img  src={recipeLike.image} alt={recipeLike.label} />
-      <p style={{fontWeight: "medium", fontFamily: "Poppins", fontWeight:'bold'}}>{recipeLike.label}</p>
+      <p style={{fontWeight: "medium", fontFamily: "Poppins"}}>{recipeLike.label}</p>
       <div className='buttons-container' >
       <Button
           sx={{width:"150px", marginRight:"1em"}}

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import DrawerMenu from './DrawerMenu';
 import { SearchContext } from "../contexts/SearchContext";
 import LoadingContext from '../contexts/LoadingContext';
 import DrawerContext from '../contexts/DrawerContext';
-import DrawerMenu from './DrawerMenu';
 import { Toolbar } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -97,7 +97,7 @@ const Search = styled('div')(({ theme }) => ({
                         <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder={term == undefined ? "Search something" : term}
+                            placeholder={term === undefined ? "Search something" : term}
                             inputProps={{ 'aria-label': 'search' }}
                             onChange={handleInterTerm}
                             onKeyUp={pressEnter}

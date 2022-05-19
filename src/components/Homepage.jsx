@@ -1,10 +1,7 @@
-import '../homepage.css';
-import { Typography } from '@mui/material';
 import SearchHome from './SearchHome';
 import DrawerHome from './DrawerHome';
-
-
-
+import { Typography } from '@mui/material';
+import '../homepage.css';
 
 
 function Homepage() {

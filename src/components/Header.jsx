@@ -1,5 +1,5 @@
-import { DrawerContextProvider } from '../contexts/DrawerContext';
 import SearchAppbar from './SearchAppBar';
+import { DrawerContextProvider } from '../contexts/DrawerContext';
 function Header() {
     return ( 
         <DrawerContextProvider>

@@ -1,7 +1,7 @@
 import React from 'react';
+import { useContext } from 'react';
 import LikedRecipe from './LikedRecipe';
 import Header from './Header';
-import { useContext } from 'react';
 import {RecipeContext} from '../contexts/RecipeContext';
 import { Typography } from '@mui/material';
 

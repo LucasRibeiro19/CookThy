@@ -1,7 +1,7 @@
 import { useContext } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DrawerContext from '../contexts/DrawerContext';
 import {RecipeContext} from '../contexts/RecipeContext';
-import { useNavigate, useLocation } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -9,7 +9,6 @@ import ContactPageIcon from '@mui/icons-material/ContactPage';
 import InfoIcon from '@mui/icons-material/Info';
 import Badge from '@mui/material/Badge';
 import { makeStyles } from '@mui/styles';
-// import { makeStyles } from '@mui/material/styles';
 import { Drawer } from '@mui/material';
 import { List } from '@mui/material';
 import { ListItem } from '@mui/material';

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import "../about.css";
 import { Typography } from '@mui/material';
+import "../about.css";
 
 function AboutPage() {
   return (

@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { FilterContext } from '../contexts/FilterContext';
 import { RecipeContext } from '../contexts/RecipeContext';
 
 
 function BackButton({label, recipe}) {
-  const filters = useContext(FilterContext)
   const {isLiked} = useContext(RecipeContext)
   
     const navigate = useNavigate();

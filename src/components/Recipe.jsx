@@ -1,8 +1,7 @@
 import React from 'react'
-import LikeButton from './LikeButton';
 import { useNavigate } from 'react-router-dom';
+import LikeButton from './LikeButton';
 import Card from '@mui/material/Card';
-// import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
@@ -45,7 +44,7 @@ export default function Recipe( {recipe} ) {
                     <Typography variant="body2" color="text.secondary">
                     {recipe.recipe.yield} Persons
                     </Typography>
-                    {recipe.recipe.totalTime != 0 ?
+                    {recipe.recipe.totalTime !== 0 ?
                         <Typography variant="body2" color="text.secondary">
                             {recipe.recipe.totalTime} minutes
                         </Typography>

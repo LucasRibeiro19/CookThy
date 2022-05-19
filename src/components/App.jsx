@@ -1,8 +1,6 @@
-import '../App.css';
 import {Routes, Route} from 'react-router-dom';
 import Homepage from './Homepage';
 import Footer from './Footer';
-import Header from './Header';
 import Searchpage from './Searchpage';
 import RecipeDetails from './RecipeDetails';
 import LikedRecipes from './LikedRecipes';
@@ -13,6 +11,7 @@ import { RecipeContextProvider } from '../contexts/RecipeContext';
 import { FilterContextProvider} from '../contexts/FilterContext';
 import { DrawerContextProvider } from '../contexts/DrawerContext';
 import {LoadingContextProvider} from '../contexts/LoadingContext';
+import '../App.css';
 
 
 function App() {

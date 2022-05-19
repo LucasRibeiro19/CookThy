@@ -1,17 +1,16 @@
-import '../searchpage.css';
 import Display from "./Display";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
+import RequestLoader from './RequestLoader';
+import ButtonNext from './ButtonNext';
+import Filters from './Filters.jsx';
 import axios from 'axios';
+import Header from './Header';
 import { SearchContext } from '../contexts/SearchContext';
 import { RecipeContext } from '../contexts/RecipeContext';
-import Filters from './Filters.jsx';
 import { FilterContext } from '../contexts/FilterContext.jsx';
-import ButtonNext from './ButtonNext';
-import { Typography } from '@mui/material';
-import Header from './Header';
-import CircularProgress from '@mui/material/CircularProgress';
 import LoadingContext from '../contexts/LoadingContext';
-import RequestLoader from './RequestLoader';
+import { Typography } from '@mui/material';
+import '../searchpage.css';
 
 
 function Searchpage( ) {
@@ -19,9 +18,7 @@ function Searchpage( ) {
     const {loading, setLoading} = useContext(LoadingContext);
     const {term} = useContext(SearchContext);
     const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
-    const {
-        filters, countFilters
-    } = useContext(FilterContext);
+    const {filters} = useContext(FilterContext);
 
 
     useEffect(()=>{

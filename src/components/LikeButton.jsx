@@ -1,6 +1,6 @@
 import React from 'react'
-import {RecipeContext} from '../contexts/RecipeContext';
 import { useContext } from 'react';
+import {RecipeContext} from '../contexts/RecipeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHeartCircleMinus} from '@fortawesome/free-solid-svg-icons';
 import {faHeartCirclePlus} from '@fortawesome/free-solid-svg-icons';
