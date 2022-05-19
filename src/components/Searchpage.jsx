@@ -9,10 +9,12 @@ import { FilterContext } from '../contexts/FilterContext.jsx';
 import ButtonNext from './ButtonNext';
 import { Typography } from '@mui/material';
 import Header from './Header';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 function Searchpage( ) {
 
+    const [loading, setLoading] = useState(false)
     const {term} = useContext(SearchContext);
     const {setRecipes, recipes, setNextPage, handleNextPage, setDisplay} = useContext(RecipeContext);
     const {
@@ -54,8 +56,9 @@ function Searchpage( ) {
             await axios.get(url)
                 .then(res=>{
                     setRecipes(res.data)
-                    setDisplay([res.data])}
-                    )
+                    setDisplay([res.data])
+                    setLoading(true)
+                })
         }
         getApiFilter(filters);
 
@@ -71,7 +74,7 @@ function Searchpage( ) {
                     color='#01937C'
                     component="div"
                     sx={{  display: {fontWeight:'bold'}, padding:"5%" }} 
-                >{term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :`}
+                >{loading ? term.length === 0 ? "Search some recipes..." : recipes.count === 0 ? `No results for "${term}"` : `${recipes.count} results for "${term}" :` : <CircularProgress color="success" />}
             </Typography>
             {recipes.count === 0 ? null : <Filters />}
             <Display />
