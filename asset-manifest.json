@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.d67542ce.css",
-    "main.js": "/static/js/main.99459d77.js",
-    "static/media/bck3.jpg": "/static/media/bck3.7b27f203ed9713200111.jpg",
-    "static/media/logo.png": "/static/media/logo.be5268f7f75977a63a70.png",
-    "index.html": "/index.html",
-    "main.d67542ce.css.map": "/static/css/main.d67542ce.css.map",
-    "main.99459d77.js.map": "/static/js/main.99459d77.js.map"
+    "main.css": "/CookThy/static/css/main.8ed320ee.css",
+    "main.js": "/CookThy/static/js/main.11a4d86e.js",
+    "static/media/bck3.jpg": "/CookThy/static/media/bck3.7b27f203ed9713200111.jpg",
+    "static/media/logo.png": "/CookThy/static/media/logo.be5268f7f75977a63a70.png",
+    "index.html": "/CookThy/index.html",
+    "main.8ed320ee.css.map": "/CookThy/static/css/main.8ed320ee.css.map",
+    "main.11a4d86e.js.map": "/CookThy/static/js/main.11a4d86e.js.map"
   },
   "entrypoints": [
-    "static/css/main.d67542ce.css",
-    "static/js/main.99459d77.js"
+    "static/css/main.8ed320ee.css",
+    "static/js/main.11a4d86e.js"
   ]
 }
