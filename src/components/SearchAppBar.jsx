@@ -88,7 +88,7 @@ const Search = styled('div')(({ theme }) => ({
                     noWrap
                     component="div"
                     sx={{  display: { xs: 'none', sm: 'block', cursor:'pointer' } }}
-                    onClick={()=> navigate('/')}
+                    onClick={()=> navigate('/CookThy')}
                 >  
                 <img src={logo} alt="Logo" width="50%"/>
                 </Typography>

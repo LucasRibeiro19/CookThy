@@ -42,7 +42,7 @@ function DrawerMenu() {
       {
         text:'Home',
         icon : <HomeIcon/>,
-        path:'/'
+        path:'/CookThy'
       },
       {
         text:'Recipes',
