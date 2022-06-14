@@ -2,7 +2,7 @@
   "name": "projet2",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://lucasribeiro19.github.io/CookThy/",
+  "homepage": "https://lucasribeiro19.github.io/",
   "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.8.1",
