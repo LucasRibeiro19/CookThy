@@ -26,7 +26,7 @@ function App() {
                   <FilterContextProvider>
                       {/* <Header/> */}
                         <Routes>
-                          <Route path="/" element={<Homepage />}></Route>
+                          <Route path="/CookThy" element={<Homepage />}></Route>
                           <Route path="/Search" element={<Searchpage />}></Route>
                           <Route path='/Recipe/:recipeID' element={<RecipeDetails/>}></Route>
                           <Route path='/liked-recipes' element={<LikedRecipes/>}></Route>
