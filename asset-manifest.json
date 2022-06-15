@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CookThy/static/css/main.8ed320ee.css",
-    "main.js": "/CookThy/static/js/main.7059908f.js",
+    "main.js": "/CookThy/static/js/main.a089dcce.js",
     "static/media/bck3.jpg": "/CookThy/static/media/bck3.7b27f203ed9713200111.jpg",
     "static/media/logo.png": "/CookThy/static/media/logo.be5268f7f75977a63a70.png",
     "index.html": "/CookThy/index.html",
     "main.8ed320ee.css.map": "/CookThy/static/css/main.8ed320ee.css.map",
-    "main.7059908f.js.map": "/CookThy/static/js/main.7059908f.js.map"
+    "main.a089dcce.js.map": "/CookThy/static/js/main.a089dcce.js.map"
   },
   "entrypoints": [
     "static/css/main.8ed320ee.css",
-    "static/js/main.7059908f.js"
+    "static/js/main.a089dcce.js"
   ]
 }
