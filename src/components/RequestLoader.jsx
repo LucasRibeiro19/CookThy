@@ -14,7 +14,9 @@ function RequestLoader() {
             sx={{  display: {fontWeight:'bold', marginRight:'1em'}}} 
             >Loading...  
         </Typography>
-        <CircularProgress color='success'/>
+        <div>
+          <CircularProgress color='success'/>
+        </div>
     </div>
   )
 }
