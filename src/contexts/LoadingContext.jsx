@@ -6,8 +6,6 @@ export const LoadingContextProvider = ({children}) => {
 
     const [loading, setLoading] = useState(false);
 
-    console.log(loading);
-
     return (
         <LoadingContext.Provider
             value={{
